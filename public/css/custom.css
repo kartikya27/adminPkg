@@ -1,0 +1,55 @@
+.icon{margin-right: 4px;}
+.header-top-info-list li .icon i{
+    font-size: 16px;
+}
+hr{background-color: #d09256;opacity: 1;}hr:not([size]) {height: 5px;}
+.who-we-img-secion{
+    background-position: 25%;
+}
+.line-height{
+    line-height: 2;
+    font-size: 18px;
+}
+ul.impact_detail {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.d-flex {
+    /* display: flex!important; */
+}
+ul.impact_detail li {
+    flex: 0 0 18%;
+}
+ul.impact_detail img {
+    width: 60px;
+    margin: 0 auto 20px;
+    /* display: block; */
+}
+
+.image-container  {
+    width: 100%;
+    height: auto;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.image-container img {
+    height: 277px;
+    max-width: 100%;
+    overflow: hidden;
+}
+.gallery-tab a {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    color: #030303;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hide {
+  display: none;
+}
