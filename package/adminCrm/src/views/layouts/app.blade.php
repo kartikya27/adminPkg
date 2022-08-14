@@ -50,9 +50,9 @@
 	    					    <a href="/admin/announcement_bar/" class="admin-menu store" onclick="homeCollapse();"><i class="fas fa-edit"></i>Home</a>
 								<div class="collapse" id="homeCollapse">
 									<a href="/admin/announcement_bar/" class="admin-menu1 announcement">Announcement Bar</a>
-									<a href="/admin/home_banner/" class="admin-menu1 slider">Slide Show</a>
-									<a href="/admin/blue_section/" class="admin-menu1 blue">Text with Link</a>
-									<a href="/admin/red_section/" class="admin-menu1 red">Text</a>
+									<a href="/admin/home_banner/" class="admin-menu1 slider">Home Sliders</a>
+									<a href="/admin/who-we-are/" class="admin-menu1 blue">Who we Section</a>
+									<a href="/admin/success-stories/" class="admin-menu1 red">Success stories</a>
 								</div>
 	    					    <a href="/admin/blue-slider/" class="admin-menu store" onclick="ourStoryCollapse();"><i class="fas fa-edit"></i>Our Story</a>
 								<div class="collapse" id="ourStoryCollapse">
