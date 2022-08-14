@@ -9,6 +9,7 @@ use Kartikey\AdminCrm\Models\products;
 use Kartikey\AdminCrm\Models\categories;
 use Kartikey\AdminCrm\Models\orders_customers;
 use Kartikey\AdminCrm\Models\orders_items;
+use Kartikey\AdminCrm\Models\announcementBar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -52,4 +53,36 @@ class AdminController extends Controller
 		$categories = categories::orderBy('category','asc')->get();
 		return view('AdminCrm::categories', ['categories'=>$categories]);
 	}
+
+    public function announcement_bar_show(){
+		$announcement = announcementBar::orderBy('id','asc')->get();
+		return view('AdminCrm::announcement/show', ['announcements'=>$announcement]);
+	}
+	public function announcement_create(){
+		return view('AdminCrm::announcement/create');
+	}
+	public function announcement_store(Request $request){
+		announcementBar::create([
+		    'content' => $request->content,
+		    'url' => $request->page_url,
+		]);
+		return redirect('/admin/announcement_bar')->with('status', 'Announcement added successfully!');
+	}
+	public function announcement($announcementID){
+		$announcement = announcementBar::where('id', $announcementID)->first();
+		return view('AdminCrm::announcement/edit', ['announcement'=>$announcement]);	
+}
+public function announcement_edit($announcementID, Request $request){
+	$announcement = announcementBar::where('id', $announcementID)->first();
+		announcementBar::where('id', $announcementID)->update([
+			'content' => $request->content,
+			'url' => $request->page_url
+		]);
+	return redirect('/admin/announcement_bar')->with('status', 'Announcement Updated successfully!');	
+}
+public function announcement_delete($announcementID){
+		announcementBar::where('id', $announcementID)->delete();
+		return redirect('/admin/announcement_bar')->with('status', 'Announcement Deleted successfully!');
+	
+}
 }
