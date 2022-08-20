@@ -35,9 +35,9 @@
 	            <table class="table">
                 	<thead>
                 		<tr>
-                			
                 			<th scope="col">Sr.</th>
-                			<th scope="col" width="70%">Text</th>
+							<th scope="col" style="width:100px">Image</th>
+                			<th scope="col" width="50%">Heading</th>
                 			<th scope="col">Button Text</th>
                 			<th scope="col">Button Link</th>
                 		</tr>
@@ -50,7 +50,12 @@
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
 								@php echo $x @endphp  
 								
-								</td></tr></table>
+								</td>
+								
+							</tr></table>
+							</td>
+							<td>
+							    <div class="img-block mr-0" style="background-image:url('/storage/home/who_we_section/{{$who_weContent['image']}}');"></div>
 							</td>
                 			<td class="align-middle">
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">

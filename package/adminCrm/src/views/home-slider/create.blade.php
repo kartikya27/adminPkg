@@ -34,7 +34,7 @@
 				    <div class="form-row">
 					    <div class="col-12 mb-3">
 						    <label for="validationCustom01">Heading</label>
-							<input type="text" class="form-control @error('category') is-invalid @enderror" id="validationCustom01" name="slider_heading" placeholder="e.g. Wellness" value="{{old('category')}}" >
+							<input type="text" class="form-control @error('category') is-invalid @enderror" id="validationCustom01" name="slider_heading" placeholder="e.g. We are the best NGO" value="{{old('category')}}" >
 							@error('category')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
 						</div>
 						<div class="col-12 mb-3">
                             <label for="validationCustom02">Text</label>
-                            <textarea rows="12" class="form-control" id="validationCustom02" name="slider_subHeading">{{old('description')}}</textarea>
+                            <textarea rows="5" class="form-control" id="validationCustom02" name="slider_subHeading">{{old('description')}}</textarea>
                         </div>
 					</div>
 				</div>

@@ -128,7 +128,7 @@
 
 	function updateOrder(aData) {
         $.ajax({
-            url: '/arrange_slider_table/',
+            url: '/admin/arrange_slider_table/',
             type: 'put',
             data: {
 				"_token": "{{ csrf_token() }}",

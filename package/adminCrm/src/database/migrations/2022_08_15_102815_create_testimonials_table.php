@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRedSectionsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateRedSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('red_sections', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('heading')->nullable();
-            $table->text('content')->nullable();
-            $table->string('page')->nullable();
+            $table->string('name');
+            $table->string('content');
+            $table->string('post')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateRedSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('red_sections');
+        Schema::dropIfExists('testimonials');
     }
-}
+};

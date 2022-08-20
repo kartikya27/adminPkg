@@ -1,17 +1,17 @@
 @extends('AdminCrm::layouts.app')
-@section('app_name','Dashboard')
-@section('style','.admin-menu.products i{color:#142437;}.admin-menu1.categories{background-color:#eaeaea;border-left:5px solid #142437;color:#142437;}')
+@section('app_name','Create Program')
+@section('style','.admin-menu.products i{color:#142437;}.admin-menu1.program{background-color:#eaeaea;border-left:5px solid #142437;color:#142437;}')
 @section('content')
 <div class="container">
 	<div class="container p-0 mb-4">
 	    <div class="row">
 		    <div class="col-6">
 			    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
-					<h1 class="heading1">Categories</h1>
+					<h1 class="heading1">Program</h1>
 				</td></tr></table>
 			</div>
 			<div class="col-6 text-end">
-			    <button class="btn btn-primary" onclick="window.location.href='/admin/categories/new'">Add category</button>
+			    <button class="btn btn-primary" onclick="window.location.href='/admin/categories/new'">Add Program</button>
 			</div>
 		</div>
 	</div>
@@ -28,13 +28,15 @@
                 			<th scope="col" style="width:100px"></th>
                 			<th scope="col">Title</th>
                 			<th scope="col">Product conditions</th>
+                			<th scope="col">URL</th>
                 		</tr>
                 	</thead>
                 	<tbody>
+						@php $x = 1 @endphp
                 		@foreach($categories as $categorie)
 		        		<tr class="table-row" data-href="/admin/categories/{{$categorie['id']}}">
                 			<td>
-							    <div class="img-block mr-0" style="background-image:url('/storage/categories/{{$categorie['categoryImage']}}');"></div>
+							   @php echo $x; $x++; @endphp 
 							</td>
                 			<td class="align-middle">
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
@@ -43,7 +45,12 @@
 							</td>
                 			<td class="align-middle">
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
-								    Product category is equal to @php echo strtolower($categorie['category']) @endphp
+								    Program category is equal to @php echo strtolower($categorie['category']) @endphp
+								</td></tr></table>
+							</td>
+                			<td class="align-middle">
+							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
+								{{$categorie['slug']}}
 								</td></tr></table>
 							</td>
                 		</tr>

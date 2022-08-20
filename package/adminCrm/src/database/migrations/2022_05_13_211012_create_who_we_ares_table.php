@@ -16,8 +16,10 @@ class CreateWhoWeAresTable extends Migration
         Schema::create('who_we_ares', function (Blueprint $table) {
             $table->id();
             $table->text('heading')->nullable();
+            $table->text('content')->nullable();
             $table->string('btnText')->nullable();
             $table->string('btnURL')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

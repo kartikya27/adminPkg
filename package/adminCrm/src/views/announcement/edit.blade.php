@@ -31,22 +31,68 @@
 			    <div class="container info-cont">
 				    <div class="form-row">
 						<div class="col-12 mb-3">
-                            <label for="validationCustom02"> Text</label>
-                            <textarea rows="6" class="form-control" id="validationCustom02" name="content">{{old('description', $announcement['content'])}}</textarea>
+                            <label for="validationCustom02">HashTags</label>
+                            <textarea rows="1" class="form-control" id="validationCustom02" name="hashtag" placeholder="e.g. #ShankaraayanFoundation" >{{old('content',$announcement['hashtag'])}}</textarea>
                         </div>
 					</div>
 				</div>
+
 				<div class="container info-cont">
-				    <h3 class="info-cont-heading">Page Url</h3>
+				    <h3 class="info-cont-heading">Social Media Links</h3>
 					<div class="form-row">
 					    <div class="col-12 mb-3">
-						    <label for="validationCustom03">Link</label>
-							<input type="text" class="form-control" id="validationCustom03" name="page_url" value="{{old('title', $announcement['url'])}}">
+						    <label for="validationCustom03">Facebook</label>
+							<input type="text" class="form-control" id="validationCustom03" name="facebook" value="{{old('url',$announcement['facebook'])}}"  >
 						</div>
 					</div>
-				</div>	
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">Instagram</label>
+							<input type="text" class="form-control" id="validationCustom03" name="instagram" value="{{old('url',$announcement['instagram'])}}"  >
+						</div>
+					</div>
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">Twitter</label>
+							<input type="text" class="form-control" id="validationCustom03" name="twitter" value="{{old('url',$announcement['twitter'])}}"  >
+						</div>
+					</div>
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">Youtube</label>
+							<input type="text" class="form-control" id="validationCustom03" name="youtube" value="{{old('url',$announcement['youtube'])}}"  >
+						</div>
+					</div>
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">LinkedIn</label>
+							<input type="text" class="form-control" id="validationCustom03" name="linkedin" value="{{old('url',$announcement['linkedin'])}}"  >
+						</div>
+					</div>
+				</div>
+				
+				
 			</div>
-			
+			<div class="col-md-4">
+				<div class="container info-cont">
+				    <h3 class="info-cont-heading">Contact</h3>
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">Phone</label>
+							<input type="number" class="form-control" id="validationCustom03" name="phone" value="{{old('url',$announcement['phone'])}}"  >
+						</div>
+					</div>
+				</div>
+				<div class="container info-cont">
+				    
+					<div class="form-row">
+					    <div class="col-12 mb-3">
+						    <label for="validationCustom03">Email</label>
+							<input type="email" class="form-control" id="validationCustom03" name="email" value="{{old('url',$announcement['email'])}}"  >
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="container proButtons">
 		    <div class="row">

@@ -11,54 +11,28 @@
     <div class="hero-slider-section position-relative">
         <div class="swiper hero-slider-container">
             <div class="swiper-wrapper">
+                @foreach($banner as $banner)
                 <div class="swiper-slide hero-slide-item">
                     <div class="container-fluid">
                         <div class="hero-slide-content">
                            
-                            <h1 class="hero-slide-title">
-                                Support Shankaraayan to Changing Lives!
-                            </h1>
-                            <p class="hero-slide-desc">
-                            Every child has access to realize their full potential through quality education and holistic learning to become young empowered leaders in the urban and the rural segments, to contribute towards a self-reliant India.
-                            </p>
-                            <a class="btn btn-primary btn-icon-right" href="about-us.html"><span>Learn
-                                    more</span>
+                            <h1 class="hero-slide-title">{!!$banner['heading']!!}</h1>
+                            <p class="hero-slide-desc">{!!$banner['subHeading']!!}</p>
+                            <a class="btn btn-primary btn-icon-right" href="{!!$banner['btnLink']!!}">
+                                <span>{!!$banner['btnText']!!}</span>
                                 <i class="icofont-double-right icon"></i></a>
                         </div>
                     </div>
                     <div class="hero-slide-shape-one" data-bg-img="{{ asset('/images/slider/slide-bg-color1.jpg') }}"></div>
                     <div class="hero-slide-thumb">
-                        <img src="{{ asset('/images/slider/teach-for-india.jpg') }}" width="1208" height="804" alt="Image" />
+                        <img src="/storage/home/banner/{{ $banner['desktopImg'] }}" width="1208" height="804" alt="Image" />
                         <a data-fancybox data-type="iframe" href="https://player.vimeo.com/video/172601404?autoplay=1"
                             class="hero-video-popup video-popup">
                             <i class="icofont-ui-play"></i>
                         </a>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-item">
-                    <div class="container-fluid">
-                        <div class="hero-slide-content">
-                            
-                            <h1 class="hero-slide-title">
-                            Help to Bring Hope by Joining Our Campaign
-                            </h1>
-                            <p class="hero-slide-desc">
-                            Know more about our campaign & donate to support us
-                            </p>
-                            <a class="btn btn-primary btn-icon-right" href="about-us.html"><span>Learn
-                                    more</span>
-                                <i class="icofont-double-right icon"></i></a>
-                        </div>
-                    </div>
-                    <div class="hero-slide-shape-one" data-bg-img="{{ asset('/images/slider/slide-bg-color1.jpg') }}"></div>
-                    <div class="hero-slide-thumb">
-                        <img src="{{ asset('/images/slider/Online-Street-to-School-by-Wishes-and-Blessings-NGO.jpeg') }}" width="1208" height="804" alt="Image" />
-                        <a data-fancybox data-type="iframe" href="https://player.vimeo.com/video/172601404?autoplay=1"
-                            class="hero-video-popup video-popup">
-                            <i class="icofont-ui-play"></i>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -73,22 +47,19 @@
                     <!--== Section Title Start ==-->
                     <div class="section-title-2 mb-0">
                         <h6 class="sub-title">WHO WE ARE</h6>
-                        <h2 class="title">A Help Initiative<br>NGO India</h2>
+                        <h2 class="title">{!!$whoWeContent->heading!!}</h2>
                         <p>
-                        8.1 million children need help to stay in school. These are the children whom education has passed by. These are the children whom we dream will, one day, all have access to schooling. Are these numbers daunting? Yes, perhaps. Yet, to us, transforming these numbers is what drives us each morning.
+                            {!!$whoWeContent->content!!}
                         </p>
-                        <p>
-                        Established in 2022 by IT professional K.Shankaraayan, Social Worker Rakesh Kumar (Rajasthan) and Political strategist Devanshu Kumar Yadav, SHANKARAAYAN works tirelessly to keep children in school, through holistic interventions that impact the community. In Starting years, SHANKARAAYAN has transformed the lives of over 20+ women and children.
-                        </p>
-                        <a class="btn btn-primary btn-icon-right" href="about-us.html"><span>Learn
-                                more</span>
+                        <a class="btn btn-primary btn-icon-right" href="{!!$whoWeContent->btnURL!!}">
+                            <span>{!!$whoWeContent->btnText!!}</span>
                             <i class="icofont-double-right icon"></i></a>
                     </div>
                     <!--== Section Title End ==-->
                 </div>
             </div>
         </div>
-        <div class="who-we-img-secion section-bg-img section-bg-img-style1" data-bg-img="{{ asset('/images/slider/girl-child-education-pic-1024x683-1.jpg') }}">
+        <div class="who-we-img-secion section-bg-img section-bg-img-style1" data-bg-img="/storage/home/who_we_section/{{$whoWeContent->image}}">
         </div>
         <div class="section-pattern-img section-pattern-img-style2 pattern-img-move">
             <img src="{{ asset('/images/shape/2.png') }}" width="148" height="190" alt="Image" />
@@ -167,16 +138,19 @@
                 </div>
                 <div class="col-lg-6 team-content-wrap">
                     <!--== Section Title Start ==-->
+                    
+                   
                     <div class="section-title-2 mb-0">
-                        <h6 class="sub-title">Our children are the change we wish to see</h6>
-                        <h2 class="title">Success Stories</h2>
+                        <h6 class="sub-title">Success Stories</h6>
+                        <h2 class="title">{!!$data['successStories']->heading!!}</h2>
                         <span class="shape"><img src="{{ asset('/images/shape/section-title.png') }}" width="99" height="7"
                                 alt="Section Title Shape" /></span>
                         <p>
-                        We work directly with government schools and local communities to provide holistic support to less privileged children of India.
-                        </p>
-                        <a href="about-us.html" class="btn btn-dark">View More</a>
+                        {!!$data['successStories']->content!!}</p>
+                        <a href="" class="btn btn-dark">View More</a>
                     </div>
+                    
+                    
                     <!--== Section Title End ==-->
                 </div>
             </div>
@@ -191,15 +165,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <!--== Start: Section Title ==-->
+                    
+                    
                     <div class="section-title-2 mb-0 mb-n2">
                         <h6 class="sub-title">QUICK DONATION</h6>
-                        <h2 class="title">A step to help the needy</h2>
+                        <h2 class="title">{!!$data['donationContent']->heading!!}</h2>
                         <span class="shape"><img src="{{ asset('/images/shape/section-title.png') }}" width="99" height="7"
                                 alt="Section Title Shape" /></span>
-                        <p>
-                        A small help from you can bring a smile to everyone's face. And will inspire us to move forward.
-                        </p>
+                        <p>{!!$data['donationContent']->content!!}</p>
                     </div>
+                    
+                    
                     <!--== End: Section Title ==-->
                 </div>
                 <div class="col-lg-6 align-self-center">
@@ -260,10 +236,7 @@
             <!--== Start: Section Title ==-->
             <div class="section-title center mt-n3">
                 <h2 class="title">Recent Event’s</h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry page when looking
-                </p>
+                
                 <span class="shape"><img src="{{ asset('/images/shape/section-title.png') }}" width="99" height="7"
                         alt="Section Title Shape" /></span>
             </div>
@@ -274,21 +247,19 @@
                 <div class="col-12 mb-6">
                     <div class="event-item">
                         <a href="event-details.html" class="image">
-                            <img src="{{ asset('/images/event/event-1.jpg') }}" width="350" height="315"
-                                alt="Fund raising for Old Age Home." />
+                            <img src="/storage/home/events/{{$events->desktopImg}}" width="350" height="315"
+                                alt="{!!$events->eventName!!}" />
                         </a>
                         <div class="content">
                             <div class="details">
-                                <span class="location"><span>Venue:</span> Smithville, Texas(TX),
-                                    78957</span>
+                                <span class="location"><span>Venue:</span> {!!$events->venue!!}</span>
                                 <h4 class="title">
-                                    <a href="event-details.html">Fund raising for old age home.</a>
+                                    <a href="event-details.html">{!!$events->eventName!!}</a>
                                 </h4>
                                 <p>
-                                    That neces ecommerce platform optime your store
-                                    ecommerce platform
+                                {!!$events->shortContent!!}
                                 </p>
-                                <span class="date"><span>Date:</span> 30 February, 2021</span>
+                                <span class="date"><span>Date:</span> {!!$events->date!!}</span>
                             </div>
                             <div class="button">
                                 <a class="btn btn-primary btn-icon-right btn-lg" href="event-details.html"><span>Join
@@ -324,58 +295,21 @@
                     <div class="swiper testimonial-slider-container testi-border mb-0 mb-lg-n2">
                         <div class="swiper-wrapper">
                             <!--== Start: Testimonial Title ==-->
+                            @foreach($testimonials as $testimonials)
                             <div class="swiper-slide">
                                 <div class="testimonial-item bg-white">
                                     <div class="inner">
                                         <img src="{{ asset('/images/icons/quote-icon.png') }}" width="144" height="102"
                                             alt="quote icon" class="icon" />
                                         <p>
-                                            That necessitat ecommerce platformthat optimi store
-                                            popularised there’s release was popularised
-                                            containing maker
+                                            {{$testimonials['content']}}
                                         </p>
-                                        <h4 class="name">Richelle Askew</h4>
-                                        <h5 class="title">CEO, of Kristal Bank</h5>
+                                        <h4 class="name">{{$testimonials['name']}}</h4>
+                                        <h5 class="title">{{$testimonials['post']}}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <!--== End: Testimonial Title ==-->
-
-                            <!--== Start: Testimonial Title ==-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-item bg-white">
-                                    <div class="inner">
-                                        <img src="{{ asset('/images/icons/quote-icon.png') }}" width="144" height="102"
-                                            alt="quote icon" class="icon" />
-                                        <p>
-                                            That necessitat ecommerce platformthat optimi store
-                                            popularised there’s release was popularised
-                                            containing maker
-                                        </p>
-                                        <h4 class="name">Fatimah Whitaker</h4>
-                                        <h5 class="title">CEO, of Kristal Bank</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--== End: Testimonial Title ==-->
-
-                            <!--== Start: Testimonial Title ==-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-item bg-white">
-                                    <div class="inner">
-                                        <img src="{{ asset('/images/icons/quote-icon.png') }}" width="144" height="102"
-                                            alt="quote icon" class="icon" />
-                                        <p>
-                                            That necessitat ecommerce platformthat optimi store
-                                            popularised there’s release was popularised
-                                            containing maker
-                                        </p>
-                                        <h4 class="name">Richelle Askew</h4>
-                                        <h5 class="title">CEO, of Kristal Bank</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--== End: Testimonial Title ==-->
+                            @endforeach
                         </div>
                     </div>
                     <div class="testimonial-swiper-pagination text-center d-none mt-10 mb-n2"></div>
@@ -396,10 +330,8 @@
                 <div class="col-lg-6 text-center text-lg-start">
                     <div class="divider-content">
                         <h4 class="sub-title">MAKE DONATION</h4>
-                        <h2 class="title">You can connect with us</h2>
-                        <p>
-                            Kinship for Humanitarian Social and Holistic Intervention in India (SHANKARAAYAN) is an independent Not for Profit Organisation founded in 2022.
-                        </p>
+                        <h2 class="title">{!!$data['connectusContent']->heading!!}</h2>
+                        <p>{!!$data['connectusContent']->content!!}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">

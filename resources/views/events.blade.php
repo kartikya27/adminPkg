@@ -22,18 +22,19 @@
         <div class="container">
             <div class="row mb-n6">
 
+            @foreach($events as $event)
                 <div class="col-12 mb-6">
                     <div class="event-item  ">
                         <a href="event-details.html" class="image">
-                            <img src="{{ asset('/images/event/event-3.jpg') }}" width="350" height="315"
+                            <img src="/storage/home/events/{{$event->desktopImg}}" width="350" height="315"
                                 alt="Fund raising for save forest.">
                         </a>
                         <div class="content">
                             <div class="details">
-                                <span class="location"><span>Venue:</span> Smithville, Texas(TX), 78957</span>
-                                <h4 class="title"><a href="event-details.html">Fund raising for save forest.</a></h4>
-                                <p>That neces ecommerce platform optime your store ecommerce platform</p>
-                                <span class="date"><span>Date:</span> 30 February, 2021</span>
+                                <span class="location"><span>Venue:</span> {!!$event->venue!!}</span>
+                                <h4 class="title"><a href="event-details.html">{!!$event->eventName!!}</a></h4>
+                                <p>{!!$event->shortContent!!}</p>
+                                <span class="date"><span>Date:</span> {!!$event->date!!}</span>
                             </div>
                             <div class="button">
                                 <a class="btn btn-primary btn-icon-right btn-lg" href="event-details.html"><span>Join
@@ -42,27 +43,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-12 mb-6">
-                    <div class="event-item  ">
-                        <a href="event-details.html" class="image">
-                            <img src="{{ asset('/images/event/event-3.jpg') }}" width="350" height="315"
-                                alt="Fund raising for save forest.">
-                        </a>
-                        <div class="content">
-                            <div class="details">
-                                <span class="location"><span>Venue:</span> Smithville, Texas(TX), 78957</span>
-                                <h4 class="title"><a href="event-details.html">Fund raising for save forest.</a></h4>
-                                <p>That neces ecommerce platform optime your store ecommerce platform</p>
-                                <span class="date"><span>Date:</span> 30 February, 2021</span>
-                            </div>
-                            <div class="button">
-                                <a class="btn btn-primary btn-icon-right btn-lg" href="event-details.html"><span>Join
-                                        Now</span> <i class="icofont-double-right icon"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @endforeach
+                
 
             </div>
         </div>

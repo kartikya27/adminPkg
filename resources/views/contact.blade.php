@@ -28,22 +28,34 @@
                                     <ul class="contact-details-info">
                                         <li>
                                             <i class="icofont-ui-call"></i>
-                                            <a href="tel://7014875375">(+91) 70148 75375</a>
+                                            <a href="tel://{!!$contact->phone1!!}">(+91) {!!$contact->phone1!!}</a>
                                         </li>
+                                        @if($contact->phone2 != '')
+                                        <li>
+                                            <i class="icofont-ui-call"></i>
+                                            <a href="tel://{!!$contact->phone1!!}">(+91) {!!$contact->phone2!!}</a>
+                                        </li>
+                                        @endif
                                         <li>
                                             <i class="icofont-envelope-open"></i>
-                                            <a href="mailto://support@shankaraayan.com">support@shankaraayan.com</a>
+                                            <a href="mailto://{!!$contact->email1!!}">{!!$contact->email1!!}</a>
                                         </li>
+                                        @if($contact->email2 != '')
+                                        <li>
+                                            <i class="icofont-envelope-open"></i>
+                                            <a href="tel://{!!$contact->email2!!}">{!!$contact->email2!!}</a>
+                                        </li>
+                                        @endif
                                         <li>
                                             <i class="icofont-location-pin"></i>
-                                            <p>C-110 Nirman Nagar Jaipur, Rajasthan - 302019</p>
+                                            <p>{!!$contact->address!!}</p>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 
-                                    <iframe width="100%" height="400px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14232.601952637346!2d75.74512618346068!3d26.898718719242645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1660384690446!5m2!1sen!2sin"></iframe>
+                                    <iframe width="100%" height="400px" src="{!!$contact->map!!}"></iframe>
                                 
                             </div>
                         </div>

@@ -34,28 +34,24 @@
                                 <ul class="header-top-info-list">
                                     <li>
                                         <span class="icon"><i class="icofont-ui-call"></i></span>
-                                        <a href="tel://5123602763" class="text">(+91) 7014875375</a>
+                                        <a href="tel://{!! $announcement->phone !!}" class="text">+91 {!! $announcement->phone !!}</a>
                                     </li>
                                     <li>
                                         <span class="icon"><i class="icofont-envelope-open"></i></span>
                                         <a href="mailto://support@shankaraayan.com"
-                                            class="text">support@shankaraayan.com</a>
+                                            class="text">{!! $announcement->email !!}</a>
                                     </li>
-                                    <!-- <li>
-                                        <span class="icon"><i class="icofont-google-map"></i></span>
-                                        <span class="text">Smithville, Texas(TX), 78957</span>
-                                    </li> -->
                                 </ul>
                             </div>
                             <div class="col-auto">
                                 <ul class="header-top-info-list">
                                     <li>
-                                        <span class="icon"><i class="icofont-facebook"></i></span>
-                                        <span class="icon"><i class="icofont-twitter"></i> </span>
-                                        <span class="icon"><i class="icofont-instagram"></i> </span>
-                                        <span class="icon"><i class="icofont-youtube"></i> </span>
-                                        <span class="icon"><i class="icofont-linkedin"></i> </span>
-                                        <span class="text">#ShankaraayanFoundation</span>
+                                        <span class="icon"><a target="_blank" href="{!! $announcement->facebook !!}"><i class="icofont-facebook"></i></a></span>
+                                        <span class="icon"><a target="_blank" href="{!! $announcement->twitter !!}"><i class="icofont-twitter"></i></a> </span>
+                                        <span class="icon"><a target="_blank" href="{!! $announcement->instagram !!}"><i class="icofont-instagram"></i></a> </span>
+                                        <span class="icon"><a target="_blank" href="{!! $announcement->youtube !!}"><i class="icofont-youtube"></i></a> </span>
+                                        <span class="icon"><a target="_blank" href="{!! $announcement->linkedin !!}"><i class="icofont-linkedin"></i></a> </span>
+                                        <span class="text">{!! $announcement->hashtag !!}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -83,19 +79,13 @@
                                         <!-- <li><a href="about-us.html">About</a></li> -->
                                         <li class="has-submenu"><a href="">What we do</a>
                                             <ul class="submenu-nav">
-                                                <li class="has-submenu"><a href="#/">Education</a>
+                                                @foreach($menu as $menu)
+                                                <li class="has-submenu"><a href="#/">{{$menu->main_menu}}</a>
                                                     <ul class="submenu-nav">
-                                                        <li><a href="{{route('what-we-do.sabko-shiksha')}}">Sabko Siksha Scheme</a></li>
-                                                        <li><a href="/what-we-do/education/adoption">Child Adoption for Education</a></li>
+                                                        <li><a href="/what-we-do/{{$menu->menu_slug}}/{{$menu->program_slug}}">{{str_replace('-',' ',ucwords($menu->program_slug))}}</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="has-submenu">
-                                                    <a href="">Community Empowerment</a>
-                                                    <ul class="submenu-nav">
-                                                        <li><a href="/what-we-do/community-empowerment/210-union">210 Mahasabha Union (Alwar)</a></li>
-                                                        <li><a href="/what-we-do/community-empowerment/old-age-home">Old Age Home</a></li>
-                                                    </ul>
-                                                </li>
+                                                @endforeach
                                                 <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                                                 <!-- <li><a href="/wellbeing">Wellbeing Facts</a></li> -->
                                                 <li><a href="{{route('success-stories')}}">Success Stories</a></li>

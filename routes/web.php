@@ -4,15 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/', [WebController::class, 'index']);
 
-Route::get('what-we-do/education/sabko-shiksha', [WebController::class, 'sabkoShiksha'])
-    ->name('what-we-do.sabko-shiksha');
+Route::get('/contact', [WebController::class, 'contact']);
+
+Route::get('what-we-do/{category}/{schemeUrl}', [WebController::class, 'programs']);
 
 Route::get('what-we-do/volunteer', [WebController::class, 'volunteer'])
     ->name('volunteer');

@@ -35,8 +35,9 @@
                 		<tr>
                 			
                 			<th scope="col">Sr.</th>
-                			<th scope="col">Announcement</th>
-                			<th scope="col">Link</th>
+                			<th scope="col">Hashtag</th>
+                			<th scope="col">Phone</th>
+                			<th scope="col">Email</th>
                 		</tr>
                 	</thead>
                 	<tbody>
@@ -51,12 +52,17 @@
 							</td>
                 			<td class="align-middle">
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
-								{{$announcment['content']}}    
+								{{$announcment['hashtag']}}    
 								</td></tr></table>
 							</td>
                 			<td class="align-middle">
 							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
-								@php echo strtolower($announcment['url']) @endphp
+								@php echo strtolower($announcment['phone']) @endphp
+								</td></tr></table>
+							</td>
+                			<td class="align-middle">
+							    <table class="table-borderless" style="width:100%;height:100%"><tr><td class="align-middle pl-0" style="width:100%;height:100%">
+								@php echo strtolower($announcment['email']) @endphp
 								</td></tr></table>
 							</td>
                 		</tr>

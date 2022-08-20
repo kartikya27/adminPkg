@@ -29,42 +29,39 @@
                     <div class="row">
                 	    <div class="col-md-2 admin-menu-cont">
                 			<a href="/admin/" class="admin-menu home"><i class="fas fa-home"></i>Home</a>
-                			<a href="/admin/orders" class="admin-menu orders"><i class="fas fa-shopping-cart"></i>Orders</a>
+                			<a href="/admin/orders" class="admin-menu orders"><i class="fas fa-shopping-cart"></i>Donation</a>
 	    					<div class="collapse" id="ordersCollapse">
-	    					    <a href="/admin/orders" class="admin-menu1 orders">Orders</a>
-	    					    <a href="/admin/checkouts" class="admin-menu1 checkouts">Abandoned checkouts</a>
+	    					    <a href="/admin/orders" class="admin-menu1 orders">Complete</a>
+	    					    <a href="/admin/checkouts" class="admin-menu1 checkouts">Pending</a>
 	    					</div>
-	    					<a href="/admin/products" class="admin-menu products"><i class="fas fa-tag"></i>Products</a>
+	    					<a href="/admin/products" class="admin-menu products"><i class="fas fa-tag"></i>Programs</a>
 	    					<div class="collapse" id="productsCollapse">
-	    					    <a href="/admin/products" class="admin-menu1 products">All products</a>
-	    					    <a href="/admin/categories" class="admin-menu1 categories">Categories</a>
-	    					    <a href="/admin/combos" class="admin-menu1 combos">Combos</a>
+	    					    <a href="/admin/products" class="admin-menu1 products">All Programs</a>
+	    					    <a href="/admin/categories" class="admin-menu1 program">Program Category</a>
 	    					</div>
 	    					<!--<a href="/admin/lookbooks" class="admin-menu lookbooks"><i class="fas fa-tags"></i>Lookbooks</a>-->
 	    					<a href="/admin/customers" class="admin-menu customers"><i class="fas fa-user"></i>Customers</a>
-	    					<a href="/admin/discounts" class="admin-menu discounts mb-4"><i class="fas fa-percentage"></i>Discounts</a>
 							
 	    					<a class="admin-subheading">SALES CHANNELS</a>
-	    					<a class="admin-menu store" onclick="storeCollapse();"><i class="fas fa-store"></i>Online Store</a> <button class="btn btn-link storeBtn" onclick="window.open('{{config('app.url')}}', '_blank');"><i class="far fa-eye"></i></button>
+							<a href="/admin/menu" class="admin-menu menu">Header Menu</a>
+	    					<a class="admin-menu store" onclick="storeCollapse();"><i class="fas fa-store"></i>Customize</a> <button class="btn btn-link storeBtn" onclick="window.open('{{config('app.url')}}', '_blank');"><i class="far fa-eye"></i></button>
 							<div class="collapse" id="storeCollapse">
 	    					    <a href="/admin/announcement_bar/" class="admin-menu store" onclick="homeCollapse();"><i class="fas fa-edit"></i>Home</a>
 								<div class="collapse" id="homeCollapse">
-									<a href="/admin/announcement_bar/" class="admin-menu1 announcement">Announcement Bar</a>
+									<a href="/admin/announcement_bar/" class="admin-menu1 announcement">Top Navbar</a>
 									<a href="/admin/home_banner/" class="admin-menu1 slider">Home Sliders</a>
 									<a href="/admin/who-we-are/" class="admin-menu1 blue">Who we Section</a>
 									<a href="/admin/success-stories/" class="admin-menu1 red">Success stories</a>
+									<a href="/admin/testimonial/" class="admin-menu1 testimonial">Testimonials</a>
+									<a href="/admin/Contact/" class="admin-menu1 Contact">Contact Us page</a>
 								</div>
-	    					    <a href="/admin/blue-slider/" class="admin-menu store" onclick="ourStoryCollapse();"><i class="fas fa-edit"></i>Our Story</a>
-								<div class="collapse" id="ourStoryCollapse">
-									<a href="/admin/blue-slider/" class="admin-menu1 blue_banner">Text Section</a>
+	    					    <a href="/admin/events/" class="admin-menu store" onclick="eventsCollapse();"><i class="fas fa-edit"></i>Events Activity</a>
+								<div class="collapse" id="eventsCollapse">
+									<a href="/admin/events/" class="admin-menu1 events">Events</a>
 									<a href="/admin/about_company/" class="admin-menu1 about_company">About Text</a>
 									<a href="/admin/footer_section/" class="admin-menu1 footer_section">Footer Banner</a>
 								</div>
-	    					    <a href="/admin/health_banner/" class="admin-menu store" onclick="healthPageCollapse();"><i class="fas fa-edit"></i>Health Shots</a>
-								<div class="collapse" id="healthPageCollapse">
-									<a href="/admin/health_banner/" class="admin-menu1 health_banner">Banner</a>
-									<a href="/admin/red_section/" class="admin-menu1 red">Text</a>
-								</div>
+	    					    
 	    					</div>
 							
 	    					<a href="/admin/settings" class="admin-menu settings"><i class="fas fa-cog"></i>Settings</a>
@@ -89,8 +86,8 @@
 		    function homeCollapse(){
 				$('#homeCollapse').collapse('toggle');
 			}
-		    function ourStoryCollapse(){
-				$('#ourStoryCollapse').collapse('toggle');
+		    function eventsCollapse(){
+				$('#eventsCollapse').collapse('toggle');
 			}
 		    function healthPageCollapse(){
 				$('#healthPageCollapse').collapse('toggle');

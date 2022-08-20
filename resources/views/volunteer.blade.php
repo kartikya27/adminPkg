@@ -28,10 +28,7 @@
                 </div>
                 <div class="col-lg-6">
                     <p class="line-height ">
-                        In 2006, the Swatantra Shikhaantra centre was established in L1, Sangam Vihar, New Delhi as a
-                        response to the high rate of drop-outs in the urban community. KHUSHII traced this down to
-                        factors such as poor foundational skills, lack of access to quality teaching, safe
-                        infrastructure or even nutritious meals. An empty stomach never devoured much knowledge!
+                    By getting a child the education that they need and allowing them the opportunity to lead a more normal life, your donation will help them become a useful member of society. The more children that grow up to work jobs and contribute to the economy, the better off we are as a society, nation, and world. While you won’t see this effect the minute you donate your money, know that your efforts are working towards creating a better future for everyone. Children are our future, so why not give as many children as possible the opportunity for a brighter one?
                     </p>
                 </div>
             </div>

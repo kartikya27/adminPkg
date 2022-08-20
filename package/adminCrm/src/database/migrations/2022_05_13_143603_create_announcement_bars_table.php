@@ -15,8 +15,14 @@ class CreateAnnouncementBarsTable extends Migration
     {
         Schema::create('announcement_bars', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->nullable();
-            $table->string('url')->nullable();
+            $table->text('hashtag')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

@@ -10,8 +10,7 @@
                         <a class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0" href="index.html">
                             <img src="{{ asset('/images/logo/logo_W.png') }}" width="220" height="58" alt="Logo" />
                         </a>
-                        <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">It is a long established fact that
-                            reader will be distracted by the readable content.</p>
+                        <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">A small help from you can bring a smile to everyone's face. And will inspire us to move forward.</p>
                         <div class="footer-widget-donars">
                             <h5 class="donars-title">Worldwide Donar’s:</h5>
                             <h3 class="donars-number">9,468K</h3>
@@ -65,15 +64,15 @@
                             <ul class="footer-widget-info">
                                 <li>
                                     <i class="icofont-ui-call"></i>
-                                    <a href="tel://5123602763">(512) 360-2763</a>
+                                    <a href="tel://{!! $contact->phone1 !!}">(+91) {!! $contact->phone1 !!}</a>
                                 </li>
                                 <li>
                                     <i class="icofont-envelope-open"></i>
-                                    <a href="mailto://support@gamil.com">support@gamil.com</a>
+                                    <a href="mailto://{!! $contact->email1 !!}">{!! $contact->email1 !!}</a>
                                 </li>
                                 <li>
                                     <i class="icofont-location-pin"></i>
-                                    <p>(303) 420-8143 Arvada, Colorado(CO)</p>
+                                    <p>{!! $contact->address !!}</p>
                                 </li>
                             </ul>
                         </div>
@@ -90,13 +89,12 @@
         <div class="container">
             <div class="row flex-row-reverse flex-md-row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="footer-copyright">© 2022 Savest. Made with <i class="icofont-heart"></i> by <a
-                            target="_blank" href="https://themeforest.net/user/codecarnival/portfolio">Codecarnival.</a>
+                    <p class="footer-copyright">© 2022 Shankaraayan.
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
                     <p class="footer-payment-info">Payment System: <a href="my-account.html"><img
-                                src="assets/images/photos/payment-card.png" width="147" height="31" alt="Image"></a></p>
+                                src="{{asset('/images/photos/payment-card.png')}}" width="147" height="31" alt="Image"></a></p>
                 </div>
             </div>
         </div>
@@ -127,7 +125,7 @@
                         <ul class="sub-menu">
                             <li><a href="#/">Education</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{route('what-we-do.sabko-shiksha')}}">Sabko Siksha Scheme</a></li>
+                                    <li><a href="">Sabko Siksha Scheme</a></li>
                                     <li><a href="/what-we-do/education/adoption">Child Adoption for Education</a></li>
                                 </ul>
                             </li>
