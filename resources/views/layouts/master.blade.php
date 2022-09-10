@@ -82,13 +82,17 @@
                                                 @foreach($menu as $menu)
                                                 <li class="has-submenu"><a href="#/">{{$menu->main_menu}}</a>
                                                     <ul class="submenu-nav">
-                                                        <li><a href="/what-we-do/{{$menu->menu_slug}}/{{$menu->program_slug}}">{{str_replace('-',' ',ucwords($menu->program_slug))}}</a></li>
+                                                    @php
+                                                        $subMenu = Kartikey\AdminCrm\Models\Products::where('program_category',$menu->menu_slug)->get();@endphp
+                                                        @foreach ($subMenu as $subMenus)
+                                                        <li><a href="/what-we-do/{{$menu->menu_slug}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
+                                                        @endforeach
                                                     </ul>
                                                 </li>
                                                 @endforeach
                                                 <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                                                 <!-- <li><a href="/wellbeing">Wellbeing Facts</a></li> -->
-                                                <li><a href="{{route('success-stories')}}">Success Stories</a></li>
+                                                <!-- <li><a href="{{route('success-stories')}}">Success Stories</a></li> -->
                                             </ul>
                                         </li>
                                         

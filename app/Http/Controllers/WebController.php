@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 use Kartikey\AdminCrm\Models\HomeBanner;
-use Kartikey\AdminCrm\Models\whoWeAre;
+use Kartikey\AdminCrm\Models\WhoWeAre;
 use Kartikey\AdminCrm\Models\successStories;
 use Kartikey\AdminCrm\Models\Testimonial;
 use Kartikey\AdminCrm\Models\Contact;
 use Illuminate\Http\Request;
 use Kartikey\AdminCrm\Models\Event;
-use Kartikey\AdminCrm\Models\Products;
+use Kartikey\AdminCrm\Models\products;
 
 
 class WebController extends Controller
 {
     public function index(){
         $banner = HomeBanner::where('status','Active')->orderBy('sequence', 'asc')->get();
-        $whoWeContent = whoWeAre::get()->first();
+        $whoWeContent = WhoWeAre::get()->first();
         $data['successStories'] = successStories::where('section','Main_page')->get()->first();
         $data['donationContent'] = successStories::where('section','Donation')->get()->first();
         $data['connectusContent'] = successStories::where('section','Footer')->get()->first();
@@ -25,7 +25,7 @@ class WebController extends Controller
     }
 
     public function programs($category,$schemeUrl){
-        $scheme = Products::
+        $scheme = products::
         where('program_category',$category)
         ->where('program_url',$schemeUrl)
         ->get()->first();

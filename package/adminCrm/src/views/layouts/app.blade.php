@@ -15,6 +15,8 @@
         <!-- Scripts -->
         @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
         <!-- Admin Layout Custom CSS -->
+          
+
         <link rel="stylesheet" href="{{asset('assets/css/admin.css')}}">   
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.owl.css')}}">
         <style> @yield('style') </style>
@@ -41,6 +43,8 @@
 	    					</div>
 	    					<!--<a href="/admin/lookbooks" class="admin-menu lookbooks"><i class="fas fa-tags"></i>Lookbooks</a>-->
 	    					<a href="/admin/customers" class="admin-menu customers"><i class="fas fa-user"></i>Customers</a>
+							
+
 							
 	    					<a class="admin-subheading">SALES CHANNELS</a>
 							<a href="/admin/menu" class="admin-menu menu">Header Menu</a>

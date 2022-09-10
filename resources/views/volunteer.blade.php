@@ -28,7 +28,11 @@
                 </div>
                 <div class="col-lg-6">
                     <p class="line-height ">
-                    By getting a child the education that they need and allowing them the opportunity to lead a more normal life, your donation will help them become a useful member of society. The more children that grow up to work jobs and contribute to the economy, the better off we are as a society, nation, and world. While you won’t see this effect the minute you donate your money, know that your efforts are working towards creating a better future for everyone. Children are our future, so why not give as many children as possible the opportunity for a brighter one?
+                    By getting a child the education that they need and allowing them the opportunity to lead a more normal life, your donation will help them become a useful member of society. 
+                    <br>
+                    Volunteering with us allows you to bring about change at the grassroots level. We welcome volunteers from all walks of life. Whatever your interest: be it education, environment, Community Empowerment, or something else, there’s an opportunity to match.
+<br>
+Being a volunteer allows you to elevate your work to an adventure, a journey to a better tomorrow. So, where do you want to go?
                     </p>
                 </div>
             </div>
@@ -40,6 +44,8 @@
             <!-- <h6 class="sub-title">OUR MISSION AND VISSION</h6> -->
             <div class="about-content">
                 <h2 class="title ">Impact</h2>
+                <p>In everything that we do, we seek to generate a positive impact in the lives of children and women in rural communities. It is therefore critically important we measure the results and effects that we have on our beneficiaries. We keep improving our monitoring and evaluation processes every year. 
+</p>
             </div>
             <div class="row mt-8">
                 <div class="col-lg-12">

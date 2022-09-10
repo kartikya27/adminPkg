@@ -12,8 +12,8 @@
                         </a>
                         <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">A small help from you can bring a smile to everyone's face. And will inspire us to move forward.</p>
                         <div class="footer-widget-donars">
-                            <h5 class="donars-title">Worldwide Donar’s:</h5>
-                            <h3 class="donars-number">9,468K</h3>
+                        <h5 class="donars-title">PAN India Donar’s:</h5>
+                            <h3 class="donars-number">20+</h3>
                         </div>
                     </div>
                     <!--== Start: Footer Widget ==-->
@@ -23,16 +23,16 @@
                     <div class="footer-widget">
                         <div class="row">
                             <div class="col-md-6 footer-widget-nav1">
-                                <h4 class="footer-widget-title">Resources</h4>
+                            <h4 class="footer-widget-title">Schemes</h4>
                                 <h4 class="collapsed-title collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#dividerId-1" aria-expanded="false">Resources</h4>
+                                    data-bs-target="#dividerId-1" aria-expanded="false">Schemes</h4>
                                 <div id="dividerId-1" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
-                                        <li><a href="about-us.html">Nonprofit Resources</a></li>
-                                        <li><a href="about-us.html">CSR Made Simple</a></li>
-                                        <li><a href="about-us.html">Corporate Resources</a></li>
-                                        <li><a href="about-us.html">Start an Application</a></li>
-                                        <li><a href="about-us.html">Corporate Gift Cards</a></li>
+                                    @php
+                                         $subMenu = Kartikey\AdminCrm\Models\Products::where('program_status','active')->get();@endphp
+                                         @foreach ($subMenu as $subMenus)
+                                         <li><a href="/what-we-do/{{$subMenus->program_category}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
+                                         @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -42,11 +42,12 @@
                                     data-bs-target="#dividerId-2" aria-expanded="false">Qtuick Links</h4>
                                 <div id="dividerId-2" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
-                                        <li><a href="about-us.html">Start Donating</a></li>
-                                        <li><a href="about-us.html">Become a Volunteer</a></li>
-                                        <li><a href="about-us.html">Quick Fundraising</a></li>
-                                        <li><a href="about-us.html">Save for Animal</a></li>
-                                        <li><a href="about-us.html">Get Daily Updates</a></li>
+                                    <li><a href="{{route('volunteer')}}">Volunteer</a></li>
+                                        <!-- <li><a href="{{route('success-stories')}}">Success Stories</a></li> -->
+                                        <li><a href="/events">Events</a></li>
+                                        <!-- <li><a href="/events">Activity</a></li> -->
+                                        <li><a href="/gallery">Gallery</a></li>
+                                        <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -123,25 +124,23 @@
 
                     <li><a href="#">What we do</a>
                         <ul class="sub-menu">
-                            <li><a href="#/">Education</a>
+                            @foreach($menu as $menu)
+                            <li><a href="#/">{{$menu->main_menu}}</a>
                                 <ul class="sub-menu">
-                                    <li><a href="">Sabko Siksha Scheme</a></li>
-                                    <li><a href="/what-we-do/education/adoption">Child Adoption for Education</a></li>
-                                </ul>
+                                    @php
+                                        $subMenu = Kartikey\AdminCrm\Models\Products::where('program_category',$menu->menu_slug)->get();@endphp
+                                        @foreach ($subMenu as $subMenus)
+                                    <li><a href="/what-we-do/{{$menu->menu_slug}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
+                                    @endforeach       
+                            </ul>
                             </li>
-                            <li>
-                                <a href="">Community Empowerment</a>
-                                <ul class="sub-menu">
-                                    <li><a href="/what-we-do/community-empowerment/210-union">210 Mahasabha Union
-                                            (Alwar)</a></li>
-                                    <li><a href="/what-we-do/community-empowerment/old-age-home">Old Age Home</a></li>
-                                </ul>
-                            </li>
+                            @endforeach
+                            
                     </li>
 
                     <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                     <!-- <li><a href="/wellbeing">Wellbeing Facts</a></li> -->
-                    <li><a href="{{route('success-stories')}}">Success Stories</a></li>
+                    <!-- <li><a href="{{route('success-stories')}}">Success Stories</a></li> -->
                 </ul>
                 </li>
                 <li class="has-submenu"><a href="">Activity & Events</a>

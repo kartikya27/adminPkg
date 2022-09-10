@@ -10,7 +10,7 @@ use Kartikey\AdminCrm\Models\orders_customers;
 use Kartikey\AdminCrm\Models\orders_items;
 use Kartikey\AdminCrm\Models\announcementBar;
 use Kartikey\AdminCrm\Models\HomeBanner;
-use Kartikey\AdminCrm\Models\whoWeAre;
+use Kartikey\AdminCrm\Models\WhoWeAre;
 use Kartikey\AdminCrm\Models\successStories;
 use Kartikey\AdminCrm\Models\Testimonial;
 use Kartikey\AdminCrm\Models\Contact;
@@ -61,13 +61,13 @@ class AdminController extends Controller
 	}
 	public function menu_form($menuID, Request $request){
 		$category = Categories::orderBy('id','asc')->get();
-		$products = Products::orderBy('id','asc')->get();
+		$products = products::orderBy('id','asc')->get();
 		$menu = Menu::where('id',$menuID)->get()->first();
 		return view('AdminCrm::menu.edit', ['menu'=>$menu,'category'=>$category,'products'=>$products]);
 	}
 	public function menu_add(){
 		$category = Categories::orderBy('id','asc')->get();
-		$products = Products::orderBy('id','asc')->get();
+		$products = products::orderBy('id','asc')->get();
 		return view('AdminCrm::menu.create', ['category'=>$category,'products'=>$products]);
 	}
 	public function menu_delete($menuID){
@@ -77,7 +77,7 @@ class AdminController extends Controller
 	public function menu_store(Request $request){
 		$menuSlug = str_replace(' ','-',strtolower($request->program_category));
 		$programSlug = $request->program_url;
-		$product = Products::where('program_url',$programSlug)->get()->first();
+		$product = products::where('program_url',$programSlug)->get()->first();
 		Menu::create([
 		    'main_menu' => $request->program_category,
 		    'menu_slug' => $menuSlug,
@@ -89,7 +89,7 @@ class AdminController extends Controller
 	public function menu_edit($menuID, Request $request){
 		$menuSlug = str_replace(' ','-',strtolower($request->program_category));
 		$programSlug = $request->program_url;
-		$product = Products::where('program_url',$programSlug)->get()->first();
+		$product = products::where('program_url',$programSlug)->get()->first();
 
 		$menu = Menu::where('id', $menuID)->first();
 		Menu::where('id', $menuID)->update([
@@ -104,10 +104,10 @@ class AdminController extends Controller
 ## Program Start Here
     
 	public function products(){
-		$products = Products::orderBy('id', 'desc')->simplePaginate(25);
-		$activeProducts = Products::where('program_status','Active')->orderBy('id', 'desc')->simplePaginate(25);
-		$draftProducts = Products::where('program_status','Draft')->orderBy('id', 'desc')->simplePaginate(25);
-		return view('AdminCrm::program.show', ['products'=>$products, 'activeProducts'=>$activeProducts, 'draftProducts'=>$draftProducts]);
+		$products = products::orderBy('id', 'desc')->simplePaginate(25);
+		$activeproducts = products::where('program_status','Active')->orderBy('id', 'desc')->simplePaginate(25);
+		$draftproducts = products::where('program_status','Draft')->orderBy('id', 'desc')->simplePaginate(25);
+		return view('AdminCrm::program.show', ['products'=>$products, 'activeProducts'=>$activeproducts, 'draftproducts'=>$draftproducts]);
 	}
 	
 	public function product_new(){
@@ -121,7 +121,7 @@ class AdminController extends Controller
 		]);
 		
 		$programName = ucwords($request->programName);
-		$programs = Products::where('programName', $programName)->get();
+		$programs = products::where('programName', $programName)->get();
 		
 		$program_url = str_replace(' ','-',strtolower($request->programName));
 		if(count($programs)){
@@ -176,7 +176,7 @@ class AdminController extends Controller
 			
 			$filter = $request->tag;
 			
-			Products::create([
+			products::create([
 			'program_category' => str_replace(' ','-',strtolower($request->programCategory)),
 			'programName' => ucwords($request->programName),
 			'heading' => ucwords($request->heading),
@@ -212,13 +212,13 @@ class AdminController extends Controller
 	}
 	
 	public function product($productID){
-		$product = Products::where('id', $productID)->first();
+		$product = products::where('id', $productID)->first();
 		$categories = Categories::orderBy('category','asc')->get();
 		return view('AdminCrm::program.edit', ['product'=>$product, 'categories'=>$categories]);
 	}
 
 	public function product_edit($productID, Request $request){
-		$products = Products::where('id', $productID)->first();
+		$products = products::where('id', $productID)->first();
 		if($request->program_code != $products['program_code'])
 		{
 			$request->validate([
@@ -234,7 +234,7 @@ class AdminController extends Controller
 		$Urls = [];
 		
 		if($programName != $products['programName']){
-			$products = Products::where('programName', $programName)->get();
+			$products = products::where('programName', $programName)->get();
 		    $program_url = str_replace(' ','-',strtolower($request->programName));
 		    if(count($products)){
 				for($i=0;$i<count($products);$i++){
@@ -253,7 +253,7 @@ class AdminController extends Controller
 		$program_url = str_replace(['(',')'],'',$program_url);
 		$filter = $request->tag;
 		
-		Products::where('id', $productID)
+		products::where('id', $productID)
 		->update([
 			'program_category' => str_replace(' ','-',strtolower($request->programCategory)),
 			'programName' => ucwords($request->programName),
@@ -298,11 +298,11 @@ class AdminController extends Controller
 		
 		Menu::where('program_id',$request->id)->delete();
 
-		Products::where('program_code', $request->sku)->delete();
+		products::where('program_code', $request->sku)->delete();
 	}
 
 	public function add_image($productID, Request $request){
-		$product = Products::where('id', $productID)->first();
+		$product = products::where('id', $productID)->first();
 		
 		if($request->hasFile('mediaImage'))
         {
@@ -343,7 +343,7 @@ class AdminController extends Controller
 				Image::make($source)->widen(540)->save($target1);
 				Image::make($source)->widen(270)->save($target2);
 				
-				Products::where('id', $productID)
+				products::where('id', $productID)
 			    ->update([
 			        $picNum => $filename
 			    ]);
@@ -365,28 +365,28 @@ class AdminController extends Controller
 		$img = 'public/home/programs/'.str_replace(' ','-',str_replace('/','',$request->sku)).'/'.str_replace('.jpg','-270px.jpg',$request->imgName);
 		Storage::delete($img);
 		
-		$product = Products::where('program_code', $request->sku)->first();
+		$product = products::where('program_code', $request->sku)->first();
 		
 		if($product->program_pic1 == $request->imgName){
-			Products::where('program_code', $request->sku)
+			products::where('program_code', $request->sku)
 			->update([
 			    'program_pic1' => 'null'
 			]);
 		}
 		elseif($product->program_pic2 == $request->imgName){
-			Products::where('program_code', $request->sku)
+			products::where('program_code', $request->sku)
 			->update([
 			    'program_pic2' => 'null'
 			]);
 		}
 		elseif($product->program_pic3 == $request->imgName){
-			Products::where('program_code', $request->sku)
+			products::where('program_code', $request->sku)
 			->update([
 			    'program_pic3' => 'null'
 			]);
 		}
 		else{
-			Products::where('program_code', $request->sku)
+			products::where('program_code', $request->sku)
 			->update([
 			    'program_pic4' => 'null'
 			]);
@@ -420,7 +420,7 @@ class AdminController extends Controller
 	}
 	public function categorie($categorieID){
 		$category = Categories::where('id', $categorieID)->first();
-		$products = Products::where('program_category', $category->category)->orderBy('id', 'desc')->get();
+		$products = products::where('program_category', $category->category)->orderBy('id', 'desc')->get();
 		return view('AdminCrm::category/edit', ['category'=>$category, 'products'=>$products]);
 	}
 	
@@ -647,7 +647,7 @@ class AdminController extends Controller
 
 	// who_we Section 
 	public function who_we(){
-		$who_weContent = whoWeAre::orderBy('id', 'desc')->simplePaginate(25);
+		$who_weContent = WhoWeAre::orderBy('id', 'desc')->simplePaginate(25);
 		return view('AdminCrm::who-we-are/show', ['data'=>$who_weContent]);
 	}
 	public function who_we_new(){
@@ -677,7 +677,7 @@ class AdminController extends Controller
 				}
 			}
 		}
-		whoWeAre::create([
+		WhoWeAre::create([
 		    'heading' => $request->heading,
 		    'content' => $request->content,
 		    'btnText' => $request->btnText,
@@ -687,12 +687,12 @@ class AdminController extends Controller
 		return redirect('/admin/who-we-are')->with('status', 'Section added successfully!');
 	}
 	public function who_we_form($sectionID){
-		$who_weContent = whoWeAre::where('id', $sectionID)->first();
+		$who_weContent = WhoWeAre::where('id', $sectionID)->first();
 		return view('AdminCrm::who-we-are/edit', ['who_weContent'=>$who_weContent]);	
 	}
 	public function who_we_edit($sectionID,Request $request){
-		$who_weContent = whoWeAre::where('id', $sectionID)->first();
-		whoWeAre::where('id', $sectionID)->update([
+		$who_weContent = WhoWeAre::where('id', $sectionID)->first();
+		WhoWeAre::where('id', $sectionID)->update([
 			'heading' => $request->heading,
 		    'content' => $request->content,
 		    'btnText' => $request->btnText,
@@ -703,7 +703,7 @@ class AdminController extends Controller
 
 	public function who_we_edit_image($bannerID, Request $request){
 		$uniqueId = date("HisdmY");
-		$banner = whoWeAre::where('id', $bannerID)->first();
+		$banner = WhoWeAre::where('id', $bannerID)->first();
 		$filename = "";
 		
 		if($request->hasFile('banner'))
@@ -733,11 +733,11 @@ class AdminController extends Controller
 		}
 		
 		if($request->type == "Mobile"){
-		    whoWeAre::where('id', $bannerID)->update([
+		    WhoWeAre::where('id', $bannerID)->update([
 		        'mobileImg' => $filename
 		    ]);
 		}else{
-			whoWeAre::where('id', $bannerID)->update([
+			WhoWeAre::where('id', $bannerID)->update([
 		        'image' => $filename
 		    ]);
 		}
@@ -746,7 +746,7 @@ class AdminController extends Controller
 	}
 
 	public function who_we_delete($sectionID){
-		whoWeAre::where('id', $sectionID)->delete();
+		WhoWeAre::where('id', $sectionID)->delete();
 		return redirect('/admin/who-we-are')->with('status', 'Section Deleted successfully!');
 	}
 

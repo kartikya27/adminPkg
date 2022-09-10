@@ -21,31 +21,40 @@
     <div class="event-section section section-padding">
         <div class="container">
             <div class="row mb-n6">
-                <div class="col-lg-12">
-                <div class="gallery-tab">
-                    <a href="#">album 1</a>
-                    <a href="#">album 2</a>
-                    <a href="#">album 3</a>
-                    <a href="#">all</a>
+            <div class="img-box col-md-3 ">
+                    <div class="box__img">
+                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                            alt="">
+                    </div>
                 </div>
-                <div class="image-container ">
-
-                    <img src="https://placeimg.com/640/480/animals" alt="" data-album="album 1">
-                    <img src="https://placeimg.com/640/480/arch" alt="" data-album="album 1">
-                    <img src="https://placeimg.com/640/480/nature" alt="" data-album="album 1">
-                    <img src="https://placeimg.com/640/480/people" alt="" data-album="album 2">
-                    <img src="https://placeimg.com/640/480/tech" alt="" data-album="album 2">
-                    <img src="https://placeimg.com/640/480/animals" alt="" data-album="album 2">
-                    <img src="https://placeimg.com/640/480/arch" alt="" data-album="album 3">
-                    <img src="https://placeimg.com/640/480/nature" alt="" data-album="album 3">
-                    <img src="https://placeimg.com/640/480/people" alt="" data-album="album 3">
-
+                <div class="img-box col-md-3 ">
+                    <div class="box__img">
+                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="img-box col-md-3 ">
+                    <div class="box__img">
+                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="img-box col-md-3 ">
+                    <div class="box__img">
+                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="img-box col-md-3 ">
+                    <div class="box__img">
+                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                            alt="">
+                    </div>
                 </div>
 
-                </div>
 
-            </div>
         </div>
+    </div>
     </div>
 </main>
 

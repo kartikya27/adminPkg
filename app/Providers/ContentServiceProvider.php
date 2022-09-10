@@ -40,6 +40,10 @@ class ContentServiceProvider extends ServiceProvider
         view()->composer('layouts.master', function($view) {
             $view->with(['menu' => $this->menu]);
         });
+        $this->menu = Menu::all();
+        view()->composer('layouts.footer', function($view) {
+            $view->with(['menu' => $this->menu]);
+        });
 
         $this->contact = Contact::get()->first();
         view()->composer('layouts.footer', function($view) {

@@ -78,13 +78,13 @@
                         <!--== Team Start ==-->
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
-                                <div class="image">
-                                    <img src="{{ asset('/images/team/team-1.jpg') }}" width="280" height="280"
-                                        alt="Ceyda Ciftci" />
+                            <div class="image">
+                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                        alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
-                                    <h4 class="name">Ceyda Ciftci</h4>
-                                    <span class="title">Senior Volunteer</span>
+                                    <!-- <h4 class="name">Ceyda Ciftci</h4> -->
+                                    <!-- <span class="title">Senior Volunteer</span> -->
                                 </div>
                             </div>
                         </div>
@@ -93,13 +93,13 @@
                         <!--== Team Start ==-->
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
-                                <div class="image">
-                                    <img src="{{ asset('/images/team/team-2.jpg') }}" width="280" height="280"
-                                        alt="Jonah Brown" />
+                            <div class="image">
+                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                        alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
-                                    <h4 class="name">Jonah Brown</h4>
-                                    <span class="title">Senior Volunteer</span>
+                                    <!-- <h4 class="name">Ceyda Ciftci</h4> -->
+                                    <!-- <span class="title">Senior Volunteer</span> -->
                                 </div>
                             </div>
                         </div>
@@ -108,13 +108,13 @@
                         <!--== Team Start ==-->
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
-                                <div class="image">
-                                    <img src="{{ asset('/images/team/team-3.jpg') }}" width="280" height="280"
-                                        alt="dusan jovic" />
+                            <div class="image">
+                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                        alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
-                                    <h4 class="name">dusan jovic</h4>
-                                    <span class="title">Senior Volunteer</span>
+                                    <!-- <h4 class="name">Ceyda Ciftci</h4> -->
+                                    <!-- <span class="title">Senior Volunteer</span> -->
                                 </div>
                             </div>
                         </div>
@@ -123,13 +123,13 @@
                         <!--== Team Start ==-->
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
-                                <div class="image">
-                                    <img src="{{ asset('/images/team/team-4.jpg') }}" width="280" height="280"
-                                        alt="Anna Bratiychuk" />
+                            <div class="image">
+                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                        alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
-                                    <h4 class="name">Anna Bratiychuk</h4>
-                                    <span class="title">Senior Volunteer</span>
+                                    <!-- <h4 class="name">Ceyda Ciftci</h4> -->
+                                    <!-- <span class="title">Senior Volunteer</span> -->
                                 </div>
                             </div>
                         </div>
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                             <button type="button" class="btn btn-primary btn-icon-right">
-                                <span>Donate Now</span>
+                                <a href="/contact"><span>Donate Now</span></a>
                                 <i class="icofont-double-right icon"></i>
                             </button>
                         </form>
@@ -262,7 +262,7 @@
                                 <span class="date"><span>Date:</span> {!!$events->date!!}</span>
                             </div>
                             <div class="button">
-                                <a class="btn btn-primary btn-icon-right btn-lg" href="event-details.html"><span>Join
+                            <a class="btn btn-primary btn-icon-right btn-lg" href="/contact"><span>Join
                                         Now</span>
                                     <i class="icofont-double-right icon"></i></a>
                             </div>
@@ -335,7 +335,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">
-                    <a class="btn btn-primary btn-icon-right" href="contact.html"><span>Join Now</span>
+                    <<a class="btn btn-primary btn-icon-right" href="/contact"><span>Join Now</span>
                         <i class="icofont-double-right icon"></i></a>
                 </div>
             </div>
