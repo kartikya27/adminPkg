@@ -8,5 +8,5 @@ font size -----------------------
 link in img on home page  --------------
 npm issue on live
 
-Payment Gatway enable
+Payment Gatway enable  --------- KEY integreted Instamojo with shankarayaan gmail
 logout not working 
