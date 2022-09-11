@@ -79,7 +79,7 @@
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
                             <div class="image">
-                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                    <img src="storage/home/events/shankaraayan-shankraayan-planning-to-implement-the-sabko-shiksha-abiyan-in-government-primary-school,-thanagaji,-alwar-desktopImage-08050711092022.jpg" width="280" height="280"
                                         alt="Shankaraayan" />
                                 </div>
                                 <div class="content">

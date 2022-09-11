@@ -66,6 +66,21 @@
                         </div>
 				</div>
 				
+				<div class="container info-cont">
+				    <h3 class="info-cont-heading">Fund Goals</h3>
+					<div class="form-row row">
+						<div class="col-6 mb-3">
+							<label for="validationCustom03">Tatal Goal</label>
+							<input type="text" class="form-control" id="validationCustom03" name="goal_amt" value="{{old('goal_amt')}}" >
+						</div>
+						<div class="col-6 mb-3">
+							<label for="validationCustom03">Funded Amount</label>
+							<input type="text" class="form-control" id="validationCustom03" name="funded_amt" value="{{old('funded_amt')}}" >
+						</div>
+					</div>
+                   
+				</div>
+				
 			</div>
 			<div class="col-md-4">
 				<div class="container info-cont">
@@ -79,6 +94,7 @@
                         </select>
                    
 				</div>
+				
 				<div class="container info-cont">
 				    <h3 class="info-cont-heading">Icon Image</h3>
 					<div class="row">

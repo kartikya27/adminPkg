@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('date')>nullable();
             $table->text('shortContent')>nullable();
             $table->text('content')>nullable();
+            $table->text('goal_amt')>nullable();
+            $table->text('funded_amt')>nullable();
             $table->string('desktopImg')>nullable();
             $table->string('mobileImg')>nullable();
             $table->string('type')>nullable();

@@ -929,6 +929,8 @@ class AdminController extends Controller
 		    'desktopImg' => $desktopImageFilename,
 		    'mobileImg' => $mobileImageFilename,
 		    'content' => $request->content,
+		    'goal_amt' => $request->goal_amt,
+		    'funded_amt' => $request->funded_amt,
 		    'type' => $request->type,
 		]);
 		return redirect('/admin/events')->with('status', 'Section added successfully!');
@@ -945,6 +947,8 @@ class AdminController extends Controller
 		    'date' => $request->date,
 		    'shortContent' => $request->shortContent,
 		    'content' => $request->content,
+			'goal_amt' => $request->goal_amt,
+		    'funded_amt' => $request->funded_amt,
 		    'type' => $request->type,
 		]);
 			return redirect('/admin/events')->with('status', 'Section Updated successfully!');	

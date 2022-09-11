@@ -41,13 +41,14 @@ class WebController extends Controller
         return view('volunteer');
     }
 
-    public function successStories(){
-        return view('success-stories');
-    }
-
     public function events(){
         $event = Event::where('type','Event')->orderBy('id','desc')->get();
         return view('events',['events'=>$event]);
+    }
+
+    public function successStories(){
+        $activity = Event::where('type','Activity')->orderBy('id','desc')->get();
+        return view('success-stories',['activity'=>$activity]);
     }
 
     public function gallery(){

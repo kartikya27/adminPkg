@@ -43,7 +43,7 @@
                                 <div id="dividerId-2" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
                                     <li><a href="{{route('volunteer')}}">Volunteer</a></li>
-                                        <!-- <li><a href="{{route('success-stories')}}">Success Stories</a></li> -->
+                                        <li><a href="{{route('success-stories')}}">Success Stories</a></li>
                                         <li><a href="/events">Events</a></li>
                                         <!-- <li><a href="/events">Activity</a></li> -->
                                         <li><a href="/gallery">Gallery</a></li>
@@ -140,7 +140,7 @@
 
                     <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                     <!-- <li><a href="/wellbeing">Wellbeing Facts</a></li> -->
-                    <!-- <li><a href="{{route('success-stories')}}">Success Stories</a></li> -->
+                    <li><a href="{{route('success-stories')}}">Success Stories</a></li>
                 </ul>
                 </li>
                 <li class="has-submenu"><a href="">Activity & Events</a>

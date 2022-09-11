@@ -1,7 +1,7 @@
 Case sensetive words products -> Products -----------------
 
 Volunteer page content --------------------
-Success stories page     ============ HIDE
+Success stories page     ============ 
 gallery page  -------------------------------
 bottom menu -----------------------
 font size -----------------------

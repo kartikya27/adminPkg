@@ -22,72 +22,31 @@
         <div class="container">
             <div class="row row-gutter-60 mb-n6 mb-xl-n60">
                 <!--== Start Campaign Item ==-->
+                @foreach($activity as $activity)
                 <div class="col-lg-4 mb-6 mb-xl-60">
                     <div class="campaign-item campaign2-item-style">
                         <a href="causes-details.html" class="image">
-                            <img src="{{ asset('/images/campaign/campaign-1.jpg') }}" width="350" height="250"
+                            <img src="/storage/home/events/{{$activity->desktopImg}}" width="350" height="250"
                                 alt="Save for animal’s">
                         </a>
                         <div class="content">
-                            <h4 class="title"><a href="causes-details.html">Save for animal’s</a></h4>
+                            <h5 class="title text-truncate text-truncate--2"><a href="causes-details.html">{!!$activity->eventName!!}</a></h5>
                             <div class="campaign-progress">
                                 <div class="progress-info">
-                                    <p>Goal: <span>$8,957</span></p>
-                                    <p>Rised: <span>58%</span></p>
+                                    <p>Goal: <span>{!!$activity->goal_amt!!}</span></p>
+                                    <p>Rised: <span>{!!$activity->funded_amt!!}</span></p>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="bar" style="width: 58%;"></div>
                                 </div>
                             </div>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text has roots in a piece
+                            <p class="text-truncate text-truncate--6">
+                            {!!$activity->shortContent!!}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-6 mb-xl-60">
-                    <div class="campaign-item campaign2-item-style">
-                        <a href="causes-details.html" class="image">
-                            <img src="{{ asset('/images/campaign/campaign-1.jpg') }}" width="350" height="250"
-                                alt="Save for animal’s">
-                        </a>
-                        <div class="content">
-                            <h4 class="title"><a href="causes-details.html">Save for animal’s</a></h4>
-                            <div class="campaign-progress">
-                                <div class="progress-info">
-                                    <p>Goal: <span>$8,957</span></p>
-                                    <p>Rised: <span>58%</span></p>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="bar" style="width: 58%;"></div>
-                                </div>
-                            </div>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text has roots in a piece
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-6 mb-xl-60">
-                    <div class="campaign-item campaign2-item-style">
-                        <a href="causes-details.html" class="image">
-                            <img src="{{ asset('/images/campaign/campaign-1.jpg') }}" width="350" height="250"
-                                alt="Save for animal’s">
-                        </a>
-                        <div class="content">
-                            <h4 class="title"><a href="causes-details.html">Save for animal’s</a></h4>
-                            <div class="campaign-progress">
-                                <div class="progress-info">
-                                    <p>Goal: <span>$8,957</span></p>
-                                    <p>Rised: <span>58%</span></p>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="bar" style="width: 58%;"></div>
-                                </div>
-                            </div>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text has roots in a piece
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
