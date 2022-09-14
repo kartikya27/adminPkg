@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Razorpay\Api\Api;
+use Session;
+use Exception;
 
 class RazorpayPaymentController extends Controller
 {
