@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
-
+use App\Http\Controllers\RazorpayPaymentController;
 
 Route::get('/', [WebController::class, 'index']);
 
@@ -23,6 +23,9 @@ Route::get('gallery', [WebController::class, 'gallery'])
     ->name('gallery');
 
 
+// For Payment Gatway
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 
 ### NOT IN USE FOR LOGIN NOW
 Route::get('/dashboard', function () {
