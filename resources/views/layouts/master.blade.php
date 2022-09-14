@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{ asset('css/plugins/fancybox.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <style>
         @yield('page-css');
         </style>
