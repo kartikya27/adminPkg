@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="http://127.0.0.1:8000/images/logo/shankaraayan.png" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://shankaraayan.com/images/logo/shankaraayan.png" width="400"></a></p>
 
 
 ## About Laravel
