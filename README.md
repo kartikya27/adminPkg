@@ -8,5 +8,5 @@ Shankaraayan is a NGO website which is fully funcationlly with backend admin con
 Not for public Use.
 
 For Support 
-support@shankaraan.com
+support@shankaraan.com / 
 shankaraayanfoundation@gmail.com
