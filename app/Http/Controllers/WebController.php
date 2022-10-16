@@ -9,6 +9,11 @@ use Kartikey\AdminCrm\Models\Contact;
 use Illuminate\Http\Request;
 use Kartikey\AdminCrm\Models\Event;
 use Kartikey\AdminCrm\Models\products;
+use Kartikey\AdminCrm\Models\WebMenu;
+use Kartikey\AdminCrm\Models\PageContent;
+use Artisan;
+use Illuminate\Support\Facades\Schema;
+
 
 
 class WebController extends Controller
@@ -43,7 +48,12 @@ class WebController extends Controller
 
     public function events(){
         $event = Event::where('type','Event')->orderBy('id','desc')->get();
-        return view('events',['events'=>$event]);
+        return view('events',['events'=>$event,'title'=>'Events']);
+    }
+
+    public function activity(){
+        $event = Event::where('type','Activity')->orderBy('id','desc')->get();
+        return view('activity',['events'=>$event,'title'=>'Activity']);
     }
 
     public function successStories(){
@@ -54,4 +64,55 @@ class WebController extends Controller
     public function gallery(){
         return view('gallery');
     }
+
+    public function webpage($param){
+        $menu = WebMenu::where('menuName',$param)->get()->first();
+        $page = PageContent::where('menu',$menu['id'])->get()->first();
+        return view('webpage',['menu' =>$menu, 'page' => $page]);
+    }
+
+    public function details(){
+        $type = $_GET['type'];
+        $id = $_GET['id'];
+        
+        if($type == 'activity'){
+            $event = Event::where('type','Activity')->first();
+            return view('blog_details',['events'=>$event,'title'=>'School Activity']);
+        }
+        elseif($type == 'event'){
+            $event = Event::where('type','Event')->first();
+            return view('blog_details',['events'=>$event,'title'=>'Events']);
+        }
+    }
+    
+    public function donate(){
+        return view('donate');
+    }
+    
+    // makemodel
+    public function makemodel($model){
+        Artisan::call('make:model', ['name' => $model, '-m' =>true]);
+        // Artisan::call('make:migration', ['name' => 'create_'.$model.'_table']);
+    }
+    
+    public function migrate($model){
+        $hasTable = Schema::hasTable($model);      
+
+if ($hasTable==0)
+        {
+            
+
+            $migrate = Artisan::call('migrate');
+            
+
+            print_r($migrate);
+           
+        }
+    }
+    
+    
+    
+    
+    
 }
+

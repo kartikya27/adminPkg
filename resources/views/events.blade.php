@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-sm-auto text-center text-sm-start">
-                    <h1 class="page-header-title">Events</h1>
+                    <h1 class="page-header-title"><?= $title?></h1>
                 </div>
                 
             </div>
@@ -37,7 +37,7 @@
                                 <span class="date"><span>Date:</span> {!!$event->date!!}</span>
                             </div>
                             <div class="button">
-                                <a class="btn btn-primary btn-icon-right btn-lg" href="event-details.html"><span>Join
+                                <a class="btn btn-primary btn-icon-right btn-lg" href="/contact"><span>Join
                                         Now</span> <i class="icofont-double-right icon"></i></a>
                             </div>
                         </div>

@@ -25,12 +25,12 @@
                 @foreach($activity as $activity)
                 <div class="col-lg-4 mb-6 mb-xl-60">
                     <div class="campaign-item campaign2-item-style">
-                        <a href="causes-details.html" class="image">
+                        <a href="   " class="image">
                             <img src="/storage/home/events/{{$activity->desktopImg}}" width="350" height="250"
                                 alt="Save for animal’s">
                         </a>
                         <div class="content">
-                            <h5 class="title text-truncate text-truncate--2"><a href="causes-details.html">{!!$activity->eventName!!}</a></h5>
+                            <h5 class="title text-truncate text-truncate--2"><a href="">{!!$activity->eventName!!}</a></h5>
                             <div class="campaign-progress">
                                 <div class="progress-info">
                                     <p>Goal: <span>{!!$activity->goal_amt!!}</span></p>
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <p class="text-truncate text-truncate--6">
-                            {!!$activity->shortContent!!}
+                            {{$activity->content}}
                             </p>
                         </div>
                     </div>

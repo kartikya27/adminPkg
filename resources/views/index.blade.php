@@ -1,8 +1,10 @@
 @extends('layouts.master')
 
 @section('page-title','Shankaraayan - A Help Initiative')
-@section('page-css','body{background:white;}')
-
+@section('page-css','body{background:white}.team-item:hover .image:after {opacity: 0.2;}')
+@section('header-scripts')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+@endsection
 @extends('layouts.footer')
 
 @section('content')
@@ -26,7 +28,7 @@
                     <div class="hero-slide-shape-one" data-bg-img="{{ asset('/images/slider/slide-bg-color1.jpg') }}"></div>
                     <div class="hero-slide-thumb">
                         <img src="/storage/home/banner/{{ $banner['desktopImg'] }}" width="1208" height="804" alt="Image" />
-                        <a data-fancybox data-type="iframe" href="https://player.vimeo.com/video/172601404?autoplay=1"
+                        <a data-fancybox data-type="iframe" href="https://youtu.be/OHc5KAPt7fg"
                             class="hero-video-popup video-popup">
                             <i class="icofont-ui-play"></i>
                         </a>
@@ -51,9 +53,15 @@
                         <p>
                             {!!$whoWeContent->content!!}
                         </p>
+                            <br>
+                        <h6 class="sub-title">Read More about Shankarayan volunteering Program</h6>
+                        
+                        <br>
                         <a class="btn btn-primary btn-icon-right" href="{!!$whoWeContent->btnURL!!}">
                             <span>{!!$whoWeContent->btnText!!}</span>
                             <i class="icofont-double-right icon"></i></a>
+
+                            <p>You can direct Join us by filling this details. <a style="color:blue;text-decoration:underline" href="https://docs.google.com/forms/d/1MysTnQC-nV0q0JzJAoMlPHKq_rJZDSqM3xeg9jNFx-Q"> Click Here to Join</a></p>
                     </div>
                     <!--== Section Title End ==-->
                 </div>
@@ -79,7 +87,7 @@
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
                             <div class="image">
-                                    <img src="storage/home/events/shankaraayan-shankraayan-planning-to-implement-the-sabko-shiksha-abiyan-in-government-primary-school,-thanagaji,-alwar-desktopImage-08050711092022.jpg" width="280" height="280"
+                                    <img src="/storage/home/events/shankaraayan-shankraayan-planning-to-implement-the-sabko-shiksha-abiyan-in-government-primary-school,-thanagaji,-alwar-desktopImage-08050711092022.jpg" width="280" height="280"
                                         alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
@@ -147,7 +155,7 @@
                                 alt="Section Title Shape" /></span>
                         <p>
                         {!!$data['successStories']->content!!}</p>
-                        <a href="" class="btn btn-dark">View More</a>
+                        <a href="what-we-do/success-stories" class="btn btn-dark">View More</a>
                     </div>
                     
                     
@@ -184,49 +192,38 @@
                         <form action="#">
                             <div class="row row-gutter-20 mb-n4">
                                 <div class="col-auto mb-4">
-                                <form action="{{ route('razorpay.payment.store') }}" method="POST" >
-                                    @csrf
-                                    <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                            data-key="{{ env('RAZORPAY_KEY') }}"
-                                            data-amount="2000"
-                                            data-buttontext="Pay 20 INR"
-                                            data-name="ItSolutionStuff.com"
-                                            data-description="Rozerpay"
-                                            data-image="https://www.itsolutionstuff.com/frontTheme/images/logo.png"
-                                            data-prefill.name="name"
-                                            data-prefill.email="email"
-                                            data-theme.color="#ff7529">
-                                    </script>
-                                </form>
-                                    <label for="donate-20">₹20</label>
+                                    <!--<a href="javascript:void(0)" class="btn btn-sm btn-primary float-right buy_now" data-amount="10" data-id="1">10</a> -->
+                                    <input class="visually-hidden buy_now" name="donation-value" id="donate-10" type="radio" data-amount="10" data-id="1"
+                                        value="10" />
+                                    <label for="donate-10" >₹10</label>
                                 </div>
                                 <div class="col-auto mb-4">
-                                    <input class="visually-hidden" name="donation-value" id="donate-50" type="radio"
-                                        value="50" />
+                                    <input class="visually-hidden buy_now" name="donation-value" id="donate-20" type="radio" data-amount="20" data-id="2"
+                                        value="20" />
+                                    <label for="donate-20" >₹20</label>
+                                </div>
+                                <div class="col-auto mb-4">
+                                    <input class="visually-hidden buy_now" name="donation-value" id="donate-50" type="radio" data-amount="50" data-id="3"
+                                        value="50" checked />
                                     <label for="donate-50">₹50</label>
                                 </div>
                                 <div class="col-auto mb-4">
-                                    <input class="visually-hidden" name="donation-value" id="donate-100" type="radio"
-                                        value="100" checked />
+                                    <input class="visually-hidden buy_now" name="donation-value" id="donate-100" type="radio" data-amount="100" data-id="4"
+                                        value="100" />
                                     <label for="donate-100">₹100</label>
                                 </div>
                                 <div class="col-auto mb-4">
-                                    <input class="visually-hidden" name="donation-value" id="donate-200" type="radio"
-                                        value="200" />
-                                    <label for="donate-200">₹200</label>
-                                </div>
-                                <div class="col-auto mb-4">
-                                    <input class="visually-hidden" name="donation-value" id="donate-500" type="radio"
+                                    <input class="visually-hidden buy_now" name="donation-value" id="donate-500" type="radio" data-amount="500" data-id="5"
                                         value="500" />
                                     <label for="donate-500">₹500</label>
                                 </div>
                                 <div class="col-auto mb-4">
-                                    <input class="custom-input" name="donation-value" id="custom" type="number"
+                                    <input class="custom-input " name="donation-value" id="custom" value="" type="number" data-id="6"
                                         placeholder="Custom" />
                                     <label class="visually-hidden" for="custom">custom</label>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary btn-icon-right">
+                            <button type="button" class="btn btn-primary btn-icon-right buy_now1">
                                 <a href="/contact"><span>Donate Now</span></a>
                                 <i class="icofont-double-right icon"></i>
                             </button>
@@ -258,7 +255,7 @@
                 <!--== Start: Event Title ==-->
                 <div class="col-12 mb-6">
                     <div class="event-item">
-                        <a href="event-details.html" class="image">
+                        <a href="" class="image">
                             <img src="/storage/home/events/{{$events->desktopImg}}" width="350" height="315"
                                 alt="{!!$events->eventName!!}" />
                         </a>
@@ -266,7 +263,7 @@
                             <div class="details">
                                 <span class="location"><span>Venue:</span> {!!$events->venue!!}</span>
                                 <h4 class="title">
-                                    <a href="event-details.html">{!!$events->eventName!!}</a>
+                                    <a href="details?type=event&id={!!$events->id!!}&{!!$events->eventName!!}">{!!$events->eventName!!}</a>
                                 </h4>
                                 <p>
                                 {!!$events->shortContent!!}
@@ -347,7 +344,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end">
-                    <<a class="btn btn-primary btn-icon-right" href="/contact"><span>Join Now</span>
+                    <a class="btn btn-primary btn-icon-right" href="/contact"><span>Join Now</span>
                         <i class="icofont-double-right icon"></i></a>
                 </div>
             </div>
@@ -358,4 +355,76 @@
     </div>
 </main>
 
+@endsection
+
+@section('scripts')
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+var SITEURL = window.location.origin;
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+}); 
+$('body').on('click', '.buy_now', function(e){
+var totalAmount = $(this).attr("data-amount");
+var product_id =  $(this).attr("data-id");
+var options = {
+"key": "rzp_live_4SLhE7PLKhVoo5",
+"amount": (totalAmount*100), // 2000 paise = INR 20
+"name": "Shankaraayan Foundation",
+"description": "QUICK DONATION",
+"image": "//www.demo.shankaraayan.com/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg",
+"handler": function (response){
+window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&product_id='+product_id+'&amount='+totalAmount;
+},
+"prefill": {
+"contact": '',
+"email":   '',
+},
+"theme": {
+"color": "#528FF0"
+}
+};
+var rzp1 = new Razorpay(options);
+rzp1.open();
+e.preventDefault();
+});
+
+
+
+$('body').on('click', '.buy_now1', function(e){
+var totalAmount = $('#custom').val();
+var product_id =  $(this).attr("6");
+var options = {
+"key": "rzp_live_4SLhE7PLKhVoo5",
+"amount": (totalAmount*100), // 2000 paise = INR 20
+"name": "Shankaraayan Foundation",
+"description": "QUICK DONATION",
+"image": "//www.demo.shankaraayan.com/images/logo/shankaraayan.png",
+"handler": function (response){
+window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&product_id='+product_id+'&amount='+totalAmount;
+},
+"prefill": {
+"contact": '',
+"email":   '',
+},
+"theme": {
+"color": "#528FF0"
+}
+};
+var rzp1 = new Razorpay(options);
+rzp1.open();
+e.preventDefault();
+});
+
+
+
+/*document.getElementsClass('buy_plan1').onclick = function(e){
+rzp1.open();
+e.preventDefault();
+}*/
+</script>
 @endsection

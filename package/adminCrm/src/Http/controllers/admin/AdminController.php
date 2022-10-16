@@ -17,6 +17,8 @@ use Kartikey\AdminCrm\Models\Contact;
 use Kartikey\AdminCrm\Models\Event;
 use Kartikey\AdminCrm\Models\Filters;
 use Kartikey\AdminCrm\Models\Menu;
+use Kartikey\AdminCrm\Models\WebMenu;
+use Kartikey\AdminCrm\Models\PageContent;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -100,6 +102,166 @@ class AdminController extends Controller
 		]);
 		return redirect('/admin/menu')->with('status', 'Category created!');
 	}
+
+##Web menu Start here
+
+public function page_menu(){
+	$menu = WebMenu::orderBy('id','asc')->get();
+	return view('AdminCrm::page_menu.show', ['menu'=>$menu]);
+}
+public function page_menu_form($menuID, Request $request){
+	$menu = WebMenu	::where('id',$menuID)->get()->first();
+	$listmenu = WebMenu::orderBy('id','asc')->get();
+	return view('AdminCrm::page_menu.edit', ['menu'=>$menu,'list'=>$listmenu]);
+}
+public function page_menu_add(){
+	$menu = WebMenu::orderBy('id','asc')->get();
+	return view('AdminCrm::page_menu.create', ['parent'=>$menu]);
+}
+public function page_menu_delete($menuID){
+	WebMenu::where('id', $menuID)->delete();
+	return redirect('/admin/page_menu')->with('status', 'Section Deleted successfully!');
+}
+public function page_menu_store(Request $request){
+	$menuSlug = str_replace(' ','-',strtolower($request->menuName));
+	$parent_id = $request->parent_id;
+	$design = $request->design;
+	if(empty($parent_id)){
+		$parent_id = 0;
+	}
+	WebMenu::create([
+		'menuName' => $request->menuName,
+		'slug' => $menuSlug,
+		'parent_id' => $parent_id,
+		'page_design' => $design,
+	]);
+	return redirect('/admin/page_menu')->with('status', 'Category created!');
+}
+public function page_menu_edit($menuID, Request $request){
+	$menuSlug = str_replace(' ','-',strtolower($request->menuName));
+	$programSlug = $request->slug;
+	
+	$menu = WebMenu::where('id', $menuID)->first();
+	WebMenu::where('id', $menuID)->update([
+		'menuName' => $request->menuName,
+		'slug' => $menuSlug,
+		'parent_id' => $request->parent_id,
+		'page_design' => $request->design,
+	]);
+	return redirect('/admin/page_menu')->with('status', 'Category created!');
+}
+## Page Content Start here
+public function page_content(){
+	$pages = PageContent::orderBy('id', 'desc')->simplePaginate(25);
+	return view('AdminCrm::page_content.show', ['pages'=>$pages]);
+}
+
+public function page_content_new(){
+	$webmenu = WebMenu::orderBy('id','asc')->get();
+	return view('AdminCrm::page_content.create', ['webmenu'=>$webmenu]);
+}
+
+public function page_content_store(Request $request){
+	$request->validate([
+		'menu' => 'required|:PageContent',
+	]);
+	
+	$heading = ucwords($request->heading);
+	$menu = WebMenu::where('id', $request->menu)->get()->first();
+	
+	$page_url = $menu['slug'];
+	
+	if($request->hasFile('mediaImage'))
+	{
+		$names = [];
+		$i=1;
+		$allowedfileExtension=['jpg','png','jpeg'];
+		$folder_name = "public/home/pages/".str_replace(' ','-',strtoupper($request->menu));
+		
+		foreach($request->file('mediaImage') as $image)
+		{
+			$extension = $image->getClientOriginalExtension();
+			$filename = 'Shankaraayan-'.str_replace(' ','-',strtolower($request->heading)).'-'.$i.'.'.$extension;
+			
+			$check = in_array($extension,$allowedfileExtension);
+			
+			if($check)
+			{
+				array_push($names, $filename);
+				$image->storeAs($folder_name, $filename);
+			}
+			else
+			{
+				echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
+			}
+			
+			$filename1 = 'Shankaraayan-'.str_replace(' ','-',strtolower($request->heading)).'-'.$i.'-540px.'.$extension;
+			$filename2 = 'Shankaraayan-'.str_replace(' ','-',strtolower($request->heading)).'-'.$i.'-270px.'.$extension;
+			
+			$source = storage_path().'/app/'.$folder_name.'/'.$filename;
+			$target1 = storage_path().'/app/'.$folder_name.'/'.$filename1;
+			$target2 = storage_path().'/app/'.$folder_name.'/'.$filename2;
+			
+			Image::make($source)->widen(540)->save($target1);
+			Image::make($source)->widen(270)->save($target2);
+			
+			$i++;
+		}
+		
+		$namesCount = count($names);
+		for($i=$namesCount; $i<4; $i++)
+		{
+			$names[$i] = "null";
+		}
+		
+		
+		$filter = "page";
+		
+		PageContent::create([
+		// 'program_category' => str_replace(' ','-',strtolower($request->programCategory)),
+		'heading' => ucwords($request->heading),
+		'subheading' => ucwords($request->subheading),
+		'description' => ucwords($request->description),
+		'heading1' => ucwords($request->heading1),
+		'subheading1' => ucwords($request->subheading1),
+		'description1' => ucwords($request->description1),
+		'page_url' => $page_url,
+
+		'bannerImg' => $names[0],
+		'img1' => $names[1],
+		'img2' => $names[2],
+		
+		'filter' => $filter,
+		'menu' =>$request->menu,
+		'meta_heading' => $request->meta_heading,
+		'status' => $request->status,
+		
+		]);
+		
+		Filters::updateOrInsert(
+			['filter_value' => $filter],
+			['filter_type' => 'tag_filter']
+		);
+		
+		return redirect('admin/page_content')->with('status', 'Product created successfully!');
+	}
+}
+
+public function page_content_form($pageID){
+	$page = PageContent::where('id', $pageID)->first();
+	return view('AdminCrm::page_content.edit', ['page'=>$page]);
+}
+
+public function page_content_delete(Request $request){
+	$request->validate([
+		'id' => 'bail|required',
+	]);
+	
+	$directory = 'public/home/pages/'.$request->id;
+	Storage::deleteDirectory($directory);
+	PageContent::where('id', $request->id)->delete();
+}
+
 
 ## Program Start Here
     
@@ -352,6 +514,54 @@ class AdminController extends Controller
 		return back();
 	}
 
+	public function page_content_add_image($productID, Request $request){
+		$PageContent = PageContent::where('id', $productID)->first();
+		
+		if($request->hasFile('mediaImage'))
+        {
+			$allowedfileExtension=['jpg','png','jpeg'];
+			$folder_name = "public/home/pages/".$PageContent->menu."/";
+			
+			foreach($request->file('mediaImage') as $image)
+			{
+				$extension = $image->getClientOriginalExtension();
+				if($PageContent->bannerImg == 'null'){
+					$i = 1;
+					$picNum = 'bannerImg';
+				}elseif($PageContent->img1 == 'null'){
+					$i = 2;
+					$picNum = 'img1';
+				}elseif($PageContent->img2 == 'null'){
+					$i = 3;
+					$picNum = 'img2';
+				}
+				
+				$filename = 'Shankraayan-'.str_replace(' ','-',strtolower($PageContent->heading)).'-'.$i.'.'.$extension;
+				$check = in_array($extension,$allowedfileExtension);
+				
+				if($check){
+					$image->storeAs($folder_name, $filename);
+				}
+				
+				$filename1 = 'Shankraayan-'.str_replace(' ','-',strtolower($PageContent->heading)).'-'.$i.'-540px.'.$extension;
+				$filename2 = 'Shankraayan-'.str_replace(' ','-',strtolower($PageContent->heading)).'-'.$i.'-270px.'.$extension;
+				
+				$source = storage_path().'/app/'.$folder_name.'/'.$filename;
+				$target1 = storage_path().'/app/'.$folder_name.'/'.$filename1;
+				$target2 = storage_path().'/app/'.$folder_name.'/'.$filename2;
+				
+				Image::make($source)->widen(540)->save($target1);
+				Image::make($source)->widen(270)->save($target2);
+				
+				PageContent::where('id', $productID)
+			    ->update([
+			        $picNum => $filename
+			    ]);
+			}
+		}
+		return back();
+	}
+
 	public function delete_image(Request $request){
 		$request->validate([
 		    'sku' => 'bail|required',
@@ -391,6 +601,42 @@ class AdminController extends Controller
 			    'program_pic4' => 'null'
 			]);
 		}
+	}
+
+	public function delete_web_image(Request $request){
+		$request->validate([
+		    'sku' => 'bail|required',
+		    'imgName' => 'bail|required',
+		]);
+		
+		$img = 'public/home/pages/'.str_replace(' ','-',str_replace('/','',$request->sku)).'/'.$request->imgName;
+		Storage::delete($img);
+		$img = 'public/home/pages/'.str_replace(' ','-',str_replace('/','',$request->sku)).'/'.str_replace('.jpg','-540px.jpg',$request->imgName);
+		Storage::delete($img);
+		$img = 'public/home/pages/'.str_replace(' ','-',str_replace('/','',$request->sku)).'/'.str_replace('.jpg','-270px.jpg',$request->imgName);
+		Storage::delete($img);
+		
+		$pageContent = PageContent::where('id', $request->sku)->first();
+		
+		if($pageContent->bannerImg == $request->imgName){
+			PageContent::where('id', $request->sku)
+			->update([
+			    'bannerImg' => 'null'
+			]);
+		}
+		elseif($pageContent->img1 == $request->imgName){
+			PageContent::where('id', $request->sku)
+			->update([
+			    'img1' => 'null'
+			]);
+		}
+		elseif($product->img2 == $request->imgName){
+			PageContent::where('id', $request->sku)
+			->update([
+			    'img2' => 'null'
+			]);
+		}
+		
 	}
 
 ## Program End Here

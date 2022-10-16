@@ -29,7 +29,7 @@
                                 <div id="dividerId-1" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
                                     @php
-                                         $subMenu = Kartikey\AdminCrm\Models\Products::where('program_status','active')->get();@endphp
+                                         $subMenu = Kartikey\AdminCrm\Models\products::where('program_status','active')->get();@endphp
                                          @foreach ($subMenu as $subMenus)
                                          <li><a href="/what-we-do/{{$subMenus->program_category}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
                                          @endforeach
@@ -45,7 +45,7 @@
                                     <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                                         <li><a href="{{route('success-stories')}}">Success Stories</a></li>
                                         <li><a href="/events">Events</a></li>
-                                        <!-- <li><a href="/events">Activity</a></li> -->
+                                        <li><a href="/activity">Activity</a></li>
                                         <li><a href="/gallery">Gallery</a></li>
                                         <li><a href="/contact">Contact</a></li>
                                     </ul>
@@ -93,11 +93,23 @@
                     <p class="footer-copyright">© 2022 Shankaraayan.
                     </p>
                 </div>
+                
                 <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-                    <p class="footer-payment-info">Payment System: <a href="my-account.html"><img
-                                src="{{asset('/images/photos/payment-card.png')}}" width="147" height="31" alt="Image"></a></p>
+                    
+                     <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/privacy" target="_blank">Privacy Policy</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/terms" target="_blank">Terms & Condition</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/refund" target="_blank">Cancellation and Refund</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/shipping" target="_blank">Shipping and Delivery</a></p>
+                    
+                    <!--<p class="footer-payment-info">Payment System: <a href="my-account.html"><img-->
+                    <!--            src="{{asset('/images/photos/payment-card.png')}}" width="147" height="31" alt="Image"></a></p>-->
                 </div>
-            </div>
+                </div>
+            <!--    <div class="row flex-row-reverse flex-md-row">-->
+            <!--    <div class="col-md-12 text-center text-md-end">-->
+                   
+            <!--    </div>-->
+            <!--</div>-->
         </div>
     </div>
     <!--== End: Footer Bottom ==-->
@@ -146,6 +158,7 @@
                 <li class="has-submenu"><a href="">Activity & Events</a>
                     <ul class="sub-menu">
                         <li><a href="/events">Events</a></li>
+                        <li><a href="/activity">Activity</a></li>
                     </ul>
                 </li>
                 <li><a href="/gallery">Gallery</a></li>
@@ -165,7 +178,7 @@
                 
             </ul>
         </div>
-        <a class="btn btn-primary mobail-header-donate-btn" href="donate.html">Donate Now</a>
+        <a class="btn btn-primary mobail-header-donate-btn" href="donate">Donate Now</a>
     </div>
 </aside>
 @endsection

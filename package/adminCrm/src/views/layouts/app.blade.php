@@ -15,8 +15,6 @@
         <!-- Scripts -->
         @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
         <!-- Admin Layout Custom CSS -->
-          
-
         <link rel="stylesheet" href="{{asset('assets/css/admin.css')}}">   
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.owl.css')}}">
         <style> @yield('style') </style>
@@ -44,10 +42,10 @@
 	    					<!--<a href="/admin/lookbooks" class="admin-menu lookbooks"><i class="fas fa-tags"></i>Lookbooks</a>-->
 	    					<a href="/admin/customers" class="admin-menu customers"><i class="fas fa-user"></i>Customers</a>
 							
-
-							
-	    					<a class="admin-subheading">SALES CHANNELS</a>
-							<a href="/admin/menu" class="admin-menu menu">Header Menu</a>
+	    					<a class="admin-subheading">STATIC CONTENT</a>
+							<a href="/admin/menu" class="admin-menu menu">Program Menu</a>
+							<a href="/admin/page_menu" class="admin-menu menu">Page Menu</a>
+							<a href="/admin/page_content" class="admin-menu page_content">Page Content</a>
 	    					<a class="admin-menu store" onclick="storeCollapse();"><i class="fas fa-store"></i>Customize</a> <button class="btn btn-link storeBtn" onclick="window.open('{{config('app.url')}}', '_blank');"><i class="far fa-eye"></i></button>
 							<div class="collapse" id="storeCollapse">
 	    					    <a href="/admin/announcement_bar/" class="admin-menu store" onclick="homeCollapse();"><i class="fas fa-edit"></i>Home</a>

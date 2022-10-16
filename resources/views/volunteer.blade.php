@@ -33,6 +33,7 @@
                     Volunteering with us allows you to bring about change at the grassroots level. We welcome volunteers from all walks of life. Whatever your interest: be it education, environment, Community Empowerment, or something else, there’s an opportunity to match.
 <br>
 Being a volunteer allows you to elevate your work to an adventure, a journey to a better tomorrow. So, where do you want to go?
+
                     </p>
                 </div>
             </div>
@@ -77,9 +78,9 @@ Being a volunteer allows you to elevate your work to an adventure, a journey to 
                         </li>
                     </ul>
                 </div>
-
             </div>
-           
+            <br>
+            <p>You can direct Join us by filling this details. <a style="color:blue;text-decoration:underline" href="https://docs.google.com/forms/d/1MysTnQC-nV0q0JzJAoMlPHKq_rJZDSqM3xeg9jNFx-Q"> Click Here to Join</a></p>
         </div>
         <div class="section-bg-color-shape section-bg-color-shape-style1 bg-grey"></div>
         <!-- <div class="section-bg-color-shape section-bg-color-shape-style3 bg-secondary"></div> -->

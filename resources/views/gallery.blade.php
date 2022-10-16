@@ -21,7 +21,9 @@
     <div class="event-section section section-padding">
         <div class="container">
             <div class="row mb-n6">
-            <div class="img-box col-md-3 ">
+
+
+                <div class="img-box col-md-3 ">
                     <div class="box__img">
                         <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
                             alt="">
@@ -52,9 +54,10 @@
                     </div>
                 </div>
 
+                
 
+            </div>
         </div>
-    </div>
     </div>
 </main>
 

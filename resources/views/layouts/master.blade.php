@@ -19,8 +19,9 @@
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        @yield('header-scripts')
         <style>
-        @yield('page-css');
+        @yield('page-css')
         </style>
     </head>
 
@@ -92,7 +93,7 @@
                                                 </li>
                                                 @endforeach
                                                 <li><a href="{{route('volunteer')}}">Volunteer</a></li>
-                                                <!-- <li><a href="/wellbeing">Wellbeing Facts</a></li> -->
+                                                <li><a href="/what-we-do/Wellbeing">Wellbeing Facts</a></li>
                                                 <li><a href="{{route('success-stories')}}">Success Stories</a></li>
                                             </ul>
                                         </li>
@@ -100,6 +101,7 @@
                                         <li class="has-submenu"><a href="">Activity & Events</a>
                                             <ul class="submenu-nav">
                                                 <li><a href="/events">Events</a></li>
+                                                <li><a href="/activity">Activity</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="/gallery">Gallery</a></li>
@@ -108,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="col-auto d-flex align-items-center gap-6 gap-lg-0">
-                                <a class="btn btn-primary header-donate-btn" href="donate.html">Donate Now</a>
+                                <a class="btn btn-primary header-donate-btn" href="/donate">Donate Now</a>
                                 <button class="btn-menu d-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                                     <span></span>
