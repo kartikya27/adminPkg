@@ -7,6 +7,7 @@ use App\Http\Controllers\RazorpayPaymentController;
 Route::get('/', [WebController::class, 'index']);
 
 Route::get('/contact', [WebController::class, 'contact']);
+Route::post('/contact', [WebController::class, 'contact_submit']);
 
 Route::get('what-we-do/{category}/{schemeUrl}', [WebController::class, 'programs']);
 

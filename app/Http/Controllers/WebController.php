@@ -11,6 +11,7 @@ use Kartikey\AdminCrm\Models\Event;
 use Kartikey\AdminCrm\Models\products;
 use Kartikey\AdminCrm\Models\WebMenu;
 use Kartikey\AdminCrm\Models\PageContent;
+use Kartikey\AdminCrm\Models\enquiries;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 
@@ -88,6 +89,33 @@ class WebController extends Controller
     public function donate(){
         return view('donate');
     }
+
+    public function contact_submit(Request $req){
+        header('Content-Type: application/json; charset=utf-8');
+        $name = $req->con_name;
+        $phone = $req->con_phone;
+        $email = $req->con_email;
+        $message = $req->con_message;
+
+        if(empty($name) || empty($phone)|| empty($email)|| empty($message)){
+            $return_arr = array("res" => false,"msg" => "All details are important",);
+            echo json_encode($return_arr);
+            exit;
+        }else{
+            enquiries::create([
+                'users_id' =>0,
+                'name' =>$name,
+                'phone' =>$phone,
+                'email' =>$email,
+                'message' =>$message,
+            ]);
+            $return_arr = array("res" => true,"msg" => "Thank you, your enquiry has been submitted successfully.",);
+            echo json_encode($return_arr);exit;
+        }
+
+       
+    }
+
     
     // makemodel
     public function makemodel($model){

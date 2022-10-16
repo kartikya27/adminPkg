@@ -86,14 +86,14 @@ Being a volunteer allows you to elevate your work to an adventure, a journey to 
         <!-- <div class="section-bg-color-shape section-bg-color-shape-style3 bg-secondary"></div> -->
         
     </div>
-
+<!--
     <div class="section section-padding">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                            
                             <div class="contact-form">
-                                <form id="contact-form" action="https://whizthemes.com/mail-php/raju/arden/mail.php" method="POST">
+                                <form id="contact-form"  method="POST">
                                     <div class="form-group mb-3 mb-xl-4">
                                         <input class="form-control" type="text" name="name" placeholder="Name:">
                                     </div>
@@ -116,17 +116,17 @@ Being a volunteer allows you to elevate your work to an adventure, a journey to 
                                     </div>
                                 </form>
 
-                                <!--== Message Notification ==-->
+                            
                                 <div class="form-message"></div>
                             </div>
-                            <!--== End Contact Form ==-->
+                                
                         </div>
                     </div>
                 </div>
 
                 
             </div>
-
+-->
 
 </main>
 

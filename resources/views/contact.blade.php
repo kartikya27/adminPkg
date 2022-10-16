@@ -78,12 +78,13 @@
 
                             <!--== Start Contact Form ==-->
                             <div class="contact-form">
-                                <form id="contact-form" action="https://whizthemes.com/mail-php/raju/arden/mail.php" method="POST">
+                                <form id="contact-form">
+                                    @csrf
                                     <div class="form-group mb-3 mb-xl-4">
                                         <input class="form-control" type="text" name="con_name" placeholder="Name:">
                                     </div>
                                     <div class="form-group mb-3 mb-xl-4">
-                                        <input class="form-control" type="text" name="con_phone" placeholder="Phone:">
+                                        <input class="form-control" type="number" name="con_phone" placeholder="Phone:" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10">
                                     </div>
                                     <div class="form-group mb-3 mb-xl-4">
                                         <input class="form-control" type="email" name="con_email" placeholder="Email:">
@@ -97,7 +98,7 @@
                                 </form>
 
                                 <!--== Message Notification ==-->
-                                <div class="form-message"></div>
+                                <div id="form-message" class=""></div>
                             </div>
                             <!--== End Contact Form ==-->
                         </div>
@@ -108,4 +109,38 @@
             </div>
             <!--== End: Contact Section Wrapper ==-->
         </main>
+@endsection
+
+@section('scripts')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script>
+
+$(document).on("click", ".contact-form-btn", function() {
+    var form = new FormData(document.getElementById("contact-form"));
+   
+    $.ajax({
+      url: "/contact",
+      type: 'POST',
+      dataType: 'json',
+      data: form,
+      processData: false,
+      contentType: false,
+      cache: false,
+      success: function(response) {
+        if (response.res == true) {
+          $("#form-message").html('<div class="alert alert-success" role="alert">' + response.msg + '</div>');
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+        } else {
+          $("#form-message").html('<div class="alert alert-danger" role="alert">' + response.msg + '</div>');
+          setTimeout(() => {
+            location.reload();
+            $("#form-message").html('');
+          }, 2000);
+        }
+      }
+    });
+    });
+</script>
 @endsection
