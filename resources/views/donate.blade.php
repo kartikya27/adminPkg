@@ -208,7 +208,7 @@ $(document).on('click', '.buy_now1', function(e) {
     var totalAmount = $('#custom').val();
     var product_id = $(this).attr("6");
     var options = {
-        "key": "rzp_live_4SLhE7PLKhVoo5",
+        "key": "rzp_live_lAxoy4bjsirWVK",
         "amount": (totalAmount * 100), // 2000 paise = INR 20
         "name": "Shankaraayan Foundation",
         "description": "QUICK DONATION",

@@ -117,7 +117,7 @@
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
                             <div class="image">
-                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                    <img src="https://shankaraayan.com/storage/home/gallery/1.jpg" width="280" height="280"
                                         alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
@@ -132,7 +132,7 @@
                         <div class="col-sm-6 col-lg-6 mb-6 mb-xl-8">
                             <div class="team-item">
                             <div class="image">
-                                    <img src="/storage/home/who_we_section/shankaraayan-a-help-initiative-ngo-india-desktopImage-09540015082022.jpg" width="280" height="280"
+                                    <img src="https://shankaraayan.com/storage/home/gallery/4.jpg" width="280" height="280"
                                         alt="Shankaraayan" />
                                 </div>
                                 <div class="content">
@@ -372,7 +372,7 @@ $('body').on('click', '.buy_now', function(e){
 var totalAmount = $(this).attr("data-amount");
 var product_id =  $(this).attr("data-id");
 var options = {
-"key": "rzp_live_4SLhE7PLKhVoo5",
+"key": "rzp_live_lAxoy4bjsirWVK",
 "amount": (totalAmount*100), // 2000 paise = INR 20
 "name": "Shankaraayan Foundation",
 "description": "QUICK DONATION",
@@ -399,17 +399,17 @@ $('body').on('click', '.buy_now1', function(e){
 var totalAmount = $('#custom').val();
 var product_id =  $(this).attr("6");
 var options = {
-"key": "rzp_live_4SLhE7PLKhVoo5",
+"key": "rzp_test_K0pnR6ARG4gm7g",
 "amount": (totalAmount*100), // 2000 paise = INR 20
 "name": "Shankaraayan Foundation",
 "description": "QUICK DONATION",
 "image": "//www.demo.shankaraayan.com/images/logo/shankaraayan.png",
 "handler": function (response){
-window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&product_id='+product_id+'&amount='+totalAmount;
+window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&product_id='+product_id+'&amount='+totalAmount+'&order_id='+response.razorpay_order_id;
 },
 "prefill": {
-"contact": '',
-"email":   '',
+"contact": '9999999999',
+"email":   'support@shankaraayan.com',
 },
 "theme": {
 "color": "#528FF0"
