@@ -74,7 +74,7 @@ Being a volunteer allows you to elevate your work to an adventure, a journey to 
                         <li>
                             <img src="https://khushii.org/wp-content/themes/khushii/images/kite-volunteer/volunteerc.png"
                                 alt="">
-                            <p class="poppinspara txt-ctr">Earn KHUSHII Volunteer Certificate</p>
+                            <p class="poppinspara txt-ctr">Earn SHANKARAAYAN Volunteer Certificate</p>
                         </li>
                     </ul>
                 </div>

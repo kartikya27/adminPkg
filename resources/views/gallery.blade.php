@@ -31,25 +31,25 @@
                 </div>
                 <div class="img-box col-md-3 ">
                     <div class="box__img">
-                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                        <img class="box__img1" src="storage/home/gallery/1.jpg"
                             alt="">
                     </div>
                 </div>
                 <div class="img-box col-md-3 ">
                     <div class="box__img">
-                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                        <img class="box__img1" src="storage/home/gallery/2.jpg"
                             alt="">
                     </div>
                 </div>
                 <div class="img-box col-md-3 ">
                     <div class="box__img">
-                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                        <img class="box__img1" src="storage/home/gallery/3.jpg"
                             alt="">
                     </div>
                 </div>
                 <div class="img-box col-md-3 ">
                     <div class="box__img">
-                        <img class="box__img1" src="storage/home/events/shankaraayan-fund-raising-for-save-forest.-desktopImage-14351518082022.jpg"
+                        <img class="box__img1" src="storage/home/gallery/4.jpg"
                             alt="">
                     </div>
                 </div>
