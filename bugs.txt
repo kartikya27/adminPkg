@@ -1,12 +1,10 @@
 Case sensetive words products -> Products -----------------
 
-Volunteer page content --------------------
-Success stories page     ============ 
-gallery page  -------------------------------
-bottom menu -----------------------
-font size -----------------------
-link in img on home page  --------------
 npm issue on live
 
 Payment Gatway enable  --------- KEY integreted Instamojo with shankarayaan gmail
-logout not working 
+
+
+OCT--------
+program add not working
+program delete not working

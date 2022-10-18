@@ -9,8 +9,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::namespace('Auth')->group(function(){
         Route::get('login','AuthenticatedSessionController@create')->name('login');
         Route::post('login','AuthenticatedSessionController@store')->name('login');
+        Route::post('logout','AuthenticatedSessionController@destroy')->name('logout');
         });
-    Route::middleware('admin')->group(function(){
+
+        Route::middleware('admin')->group(function(){
         Route::get('dashboard','AdminController@index')->name('dashboard');
         Route::get('/','AdminController@index')->name('dashboard');
         Route::get('orders','AdminController@orders')->name('orders');
@@ -23,21 +25,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
         Route::post('menu/{menuID}/edit', [AdminController::class, 'menu_edit']);
         Route::get('menu/{menuID}/delete', [AdminController::class, 'menu_delete']);
                
-Route::get('page_menu', [AdminController::class, 'page_menu']);
-Route::get('page_menu/new', [AdminController::class, 'page_menu_add']);
-Route::post('page_menu/new', [AdminController::class, 'page_menu_store']);
-Route::get('page_menu/{menuID}', [AdminController::class, 'page_menu_form']);
-Route::post('page_menu/{menuID}/edit', [AdminController::class, 'page_menu_edit']);
-Route::get('page_menu/{menuID}/delete', [AdminController::class, 'page_menu_delete']);
+        Route::get('page_menu', [AdminController::class, 'page_menu']);
+        Route::get('page_menu/new', [AdminController::class, 'page_menu_add']);
+        Route::post('page_menu/new', [AdminController::class, 'page_menu_store']);
+        Route::get('page_menu/{menuID}', [AdminController::class, 'page_menu_form']);
+        Route::post('page_menu/{menuID}/edit', [AdminController::class, 'page_menu_edit']);
+        Route::get('page_menu/{menuID}/delete', [AdminController::class, 'page_menu_delete']);
 
-Route::get('page_content', [AdminController::class, 'page_content']);
-Route::get('page_content/new', [AdminController::class, 'page_content_new']);
-Route::POST('page_content/new', [AdminController::class, 'page_content_store']);
-Route::get('page_content/{pageID}', [AdminController::class, 'page_content_form']);
-Route::POST('page_content/image/{pageID}', [AdminController::class, 'page_content_add_image']);
-Route::post('page_content/{pageID}/edit', [AdminController::class, 'page_content_edit']);
-Route::DELETE('page_content/delete', [AdminController::class, 'page_content_delete']);
-Route::DELETE('/web_image', [AdminController::class, 'delete_web_image']);
+        Route::get('page_content', [AdminController::class, 'page_content']);
+        Route::get('page_content/new', [AdminController::class, 'page_content_new']);
+        Route::POST('page_content/new', [AdminController::class, 'page_content_store']);
+        Route::get('page_content/{pageID}', [AdminController::class, 'page_content_form']);
+        Route::POST('page_content/image/{pageID}', [AdminController::class, 'page_content_add_image']);
+        Route::post('page_content/{pageID}/edit', [AdminController::class, 'page_content_edit']);
+        Route::DELETE('page_content/delete', [AdminController::class, 'page_content_delete']);
+        Route::DELETE('/web_image', [AdminController::class, 'delete_web_image']);
   
         Route::get('products', [AdminController::class, 'products']);
         Route::get('products/new', [AdminController::class, 'product_new']);
@@ -112,8 +114,6 @@ Route::DELETE('/web_image', [AdminController::class, 'delete_web_image']);
 
     });
         
-
-        Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
     });
 
 });

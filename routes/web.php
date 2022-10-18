@@ -45,8 +45,10 @@ Route::get('/migrate/{model}', [WebController::class, 'migrate']);
 
 // For Payment Gatway
 Route::get('donation', [RazorpayPaymentController::class, 'index']);
-Route::get('paysuccess', [RazorpayPaymentController::class, 'razorPaySuccess']);
-Route::get('razor-thank-you', [RazorpayPaymentController::class, 'RazorThankYou']);
+Route::get('paysuccess', [RazorpayPaymentController::class, 'store']);
+Route::post('paymentsuccess', [RazorpayPaymentController::class, 'paymentsuccess']);
+Route::get('thankyou', [RazorpayPaymentController::class, 'success']);
+Route::post('pay', [RazorpayPaymentController::class, 'pay']);
 
 ### NOT IN USE FOR LOGIN NOW
 Route::get('/dashboard', function () {

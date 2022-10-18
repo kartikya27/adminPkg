@@ -218,7 +218,7 @@
                                     <label for="donate-500">₹500</label>
                                 </div>
                                 <div class="col-auto mb-4">
-                                    <input class="custom-input " name="donation-value" id="custom" value="" type="number" data-id="6"
+                                    <input class="custom-input " name="donation-value" id="custom" value="" type="number" data-id="QickDonation"
                                         placeholder="Custom" />
                                     <label class="visually-hidden" for="custom">custom</label>
                                 </div>
@@ -397,15 +397,16 @@ e.preventDefault();
 
 $('body').on('click', '.buy_now1', function(e){
 var totalAmount = $('#custom').val();
-var product_id =  $(this).attr("6");
+var product_id =  $(this).attr("data-id");
+
 var options = {
-"key": "rzp_test_K0pnR6ARG4gm7g",
+"key": "rzp_live_lAxoy4bjsirWVK",
 "amount": (totalAmount*100), // 2000 paise = INR 20
 "name": "Shankaraayan Foundation",
 "description": "QUICK DONATION",
 "image": "//www.demo.shankaraayan.com/images/logo/shankaraayan.png",
 "handler": function (response){
-window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&product_id='+product_id+'&amount='+totalAmount+'&order_id='+response.razorpay_order_id;
+window.location.href = SITEURL +'/'+ 'paysuccess?payment_id='+response.razorpay_payment_id+'&amount='+totalAmount+'&order_id='+response.razorpay_order_id;
 },
 "prefill": {
 "contact": '9999999999',

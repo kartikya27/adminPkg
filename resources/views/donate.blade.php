@@ -40,15 +40,15 @@
                                         <div class="contact-form">
                                             <form action="#" id="contact-form">
                                                 <div class="form-group mb-3 mb-xl-4">
-                                                    <input class="form-control" type="text" name="name" id="name"
+                                                    <input class="form-control" type="text" name="name" id="name" 
                                                         placeholder="Name:">
                                                 </div>
                                                 <div class="form-group mb-3 mb-xl-4">
-                                                    <input class="form-control" type="text" name="phone" id="phone"
+                                                    <input class="form-control" type="text" name="phone" id="phone" 
                                                         placeholder="Phone:">
                                                 </div>
                                                 <div class="form-group mb-3 mb-xl-4">
-                                                    <input class="form-control" type="email" name="email" id="email"
+                                                    <input class="form-control" type="email" name="email" id="email" 
                                                         placeholder="Email:">
                                                 </div>
                                                 <div class="input-group mb-3">
@@ -206,29 +206,60 @@ $.ajaxSetup({
 
 $(document).on('click', '.buy_now1', function(e) {
     var totalAmount = $('#custom').val();
-    var product_id = $(this).attr("6");
-    var options = {
-        "key": "rzp_live_lAxoy4bjsirWVK",
-        "amount": (totalAmount * 100), // 2000 paise = INR 20
-        "name": "Shankaraayan Foundation",
-        "description": "QUICK DONATION",
-        "image": "//www.demo.shankaraayan.com/images/logo/shankaraayan.png",
-        "handler": function(response) {
-            window.location.href = SITEURL + '/' + 'paysuccess?payment_id=' + response
-                .razorpay_payment_id + '&product_id=' + product_id + '&amount=' + totalAmount;
-        },
-        "prefill": {
-            "contact": $('#phone').val(),
-            "email": $('#email').val(),
-            "name": $('#name').val(),
-        },
-        "theme": {
-            "color": "#528FF0"
-        }
-    };
+    var data ={
+        "product_id" : "Donation",
+        "phone" : $('#phone').val(),
+        "email" : $('#email').val(),
+        "name" : $('#name').val(),
+        "totalAmount" : $('#custom').val(),
+    }
+    // var email = $('#email').val();
+    // var name = $('#name').val();
+
+    $.ajax({
+        method:"POST",
+        url :   "/pay",
+        dataType: 'json',
+        data:data,
+        success:function(response){
+            // alert(response.order_id);
+            var order_id = response.order_id
+            var status = response.status
+            // razorpay
+            var options = {
+                "key": "rzp_live_lAxoy4bjsirWVK",
+                "amount": (totalAmount * 100), // 2000 paise = INR 20
+                "name": "Shankaraayan Foundation",
+                "description": "QUICK DONATION",
+                "image": "//www.demo.shankaraayan.com/images/logo/shankaraayan.png",
+                "handler": function(response) {
+                    // alert(response.order_id);
+                    $.ajax({
+                        method:"POST",
+                        url :   "/paymentsuccess",
+                        dataType: 'json',
+                        data:{payment_id:response.razorpay_payment_id,order_id:order_id,status:status},
+                        success:function(response){
+                            window.location.href = "thankyou?order_id="+response.order_id;
+                        }
+                    });
+                    // window.location.href = SITEURL + '/' + 'paymentsuccess?payment_id=' + response.razorpay_payment_id + '&product_id=' + product_id + '&amount=' + totalAmount+'&order_id='+response.order_id;
+                },
+                "prefill": {
+                    "contact": $('#phone').val(),
+                    "email": $('#email').val(),
+                    "name": $('#name').val(),
+                },
+                "theme": {
+                    "color": "#528FF0"
+                }
+            };
     var rzp1 = new Razorpay(options);
     rzp1.open();
-    e.preventDefault();
+    }
+    });
+
+    
 });
 
 </script>

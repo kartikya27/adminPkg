@@ -15,7 +15,7 @@ use Kartikey\AdminCrm\Models\successStories;
 use Kartikey\AdminCrm\Models\Testimonial;
 use Kartikey\AdminCrm\Models\Contact;
 use Kartikey\AdminCrm\Models\Event;
-use Kartikey\AdminCrm\Models\filters;
+use Kartikey\AdminCrm\Models\Filters;
 use Kartikey\AdminCrm\Models\Menu;
 use Kartikey\AdminCrm\Models\WebMenu;
 use Kartikey\AdminCrm\Models\PageContent;
