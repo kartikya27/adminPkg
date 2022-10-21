@@ -14,8 +14,9 @@ use Kartikey\AdminCrm\Models\PageContent;
 use Kartikey\AdminCrm\Models\enquiries;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
-
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Donation;
+use App\Models\UserDetails;
 
 class WebController extends Controller
 {
@@ -116,6 +117,49 @@ class WebController extends Controller
        
     }
 
+    // NOt in Use
+    public function dashboard(){
+        $email = Auth::user()->email;
+        $userArray = UserDetails::where('email',$email)->first();
+        return view('dashboard',['userArray'=>$userArray]);
+    }
+
+    public function updateDetails(Request $req){
+        $input = $req->all();
+
+        $subscription = isset($input['subscription']) ? $input['subscription']:'';
+        $aadharNo = isset($input['aadharCard']) ? $input['aadharCard']:'';
+        $panNo = isset($input['panCard']) ? $input['panCard']:'';
+        $address = isset($input['address']) ? $input['address']:'';
+        $pincode = isset($input['pincode']) ? $input['pincode']:'';
+        $phone = isset($input['phone']) ? $input['phone']:'';
+
+        if(!empty($subscription)){
+            $subscription = 1;
+        }else{
+            $subscription = 0;
+        }
+
+        $user = UserDetails::where('email',$input['email'])->first();
+        $user->phone = $phone;
+        $user->address = $address;
+        $user->pincode = $pincode;
+        $user->state = $input['state'];
+        $user->country = $input['country'];
+        $user->district = $input['district'];
+        $user->aadharNo = $aadharNo;
+        $user->panNo = $panNo;
+        $user->subscription = $subscription;
+        
+        $user->save();
+        return redirect()->back();
+    }
+
+    public function donationView(){
+        $email = Auth::user()->email;
+        $donationArray = Donation::where('user_id',$email)->paginate(15);
+        return view('donationView',['donationArray'=>$donationArray]);
+    }
     
     // makemodel
     public function makemodel($model){

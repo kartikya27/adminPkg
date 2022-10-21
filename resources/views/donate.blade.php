@@ -48,7 +48,7 @@
                                                         placeholder="Phone:">
                                                 </div>
                                                 <div class="form-group mb-3 mb-xl-4">
-                                                    <input class="form-control" type="email" name="email" id="email" 
+                                                    <input class="form-control" type="email" name="email" id="email"  value="@php if(!empty(Auth::user()->email))echo Auth::user()->email @endphp"
                                                         placeholder="Email:">
                                                 </div>
                                                 <div class="input-group mb-3">
@@ -100,9 +100,9 @@
                         </div>
                         <div class="col-md-6">
                             <p>Financial Details<br>
-                                Permanent Account Number: ABICS8281P<br>
-                                80G Registration Number: **********20220<br>
-                                From AY 2022-23 to AY 2026-27</p>
+                                Permanent Account Number: ABI****81P<br>
+                                80G Registration Number: **********F2022101<br>
+                                From AY 2022-23 to AY 2025-26</p>
                         </div>
                     </div>
                 </div>

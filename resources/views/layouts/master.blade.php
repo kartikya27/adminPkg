@@ -22,6 +22,7 @@
         
         @yield('header-scripts')
         <style>
+           body{letter-spacing: 1px;}.round-btn{background-color: #131b13;padding-right: 20px;padding-left: 20px!important;margin: 0 0 0 10px;border-radius: 30px;color: #fff !important;}.round-btn a:hover{color:#fff !important}
         @yield('page-css')
         </style>
     </head>
@@ -54,7 +55,7 @@
                                         <span class="icon"><a target="_blank" href="{!! $announcement->instagram !!}"><i class="icofont-instagram"></i></a> </span>
                                         <span class="icon"><a target="_blank" href="{!! $announcement->youtube !!}"><i class="icofont-youtube"></i></a> </span>
                                         <span class="icon"><a target="_blank" href="{!! $announcement->linkedin !!}"><i class="icofont-linkedin"></i></a> </span>
-                                        <span class="text">{!! $announcement->hashtag !!}</span>
+                                        <span class="text round-btn"><a href="/register">Become Volunteer</a></span>
                                     </li>
                                 </ul>
                             </div>
@@ -111,7 +112,17 @@
                                 </div>
                             </div>
                             <div class="col-auto d-flex align-items-center gap-6 gap-lg-0">
-                                <a class="btn btn-primary header-donate-btn" href="/donate">Donate Now</a>
+                                <a class="btn btn-primary header-donate-btn" href="/donate" style="padding: 8px 24px !important;">Donate Now</a>
+                                
+                                @php if(!empty(Auth::user()->email)){ @endphp
+                                    <a class="nav-link myaccountBtn logout" href="/logout"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
+                                    <form id="logout-form" action="/logout" method="POST"style="display: none;">
+                                        @csrf
+                                    </form>
+                                @php }else{ @endphp
+                                <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px">Login</a>
+                                @php } @endphp
                                 <button class="btn-menu d-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                                     <span></span>
