@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-image">
-                        <img src="https://khushii.org/wp-content/themes/khushii/images/kite-volunteer/kiteimage2.jpg" width="500" height="300" alt="Image">
+                        <img src="/images/photos/kiteimage2.jpg" width="500" height="300" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-6">
