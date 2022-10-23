@@ -13,8 +13,22 @@
                         <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">A small help from you can bring a
                             smile to everyone's face. And will inspire us to move forward.</p>
                         <div class="footer-widget-donars">
-                            <h5 class="donars-title">PAN India Donar’s:</h5>
-                            <h3 class="donars-number">20+</h3>
+                            <h5 class="donars-title">We are registered with :</h5>
+                            <div class="logo">
+                                <div class="row" style="background:#fff;">
+                                    <div class="col-6">
+                                        <img src="https://www.ngoaaptak.com/wp-content/uploads/2021/01/ngo-darpan-300x134-1.png"
+                                            alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ministry_of_Corporate_Affairs_India.svg/1200px-Ministry_of_Corporate_Affairs_India.svg.png"
+                                            alt="">
+                                    </div>
+                                   
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
                     <!--== Start: Footer Widget ==-->
@@ -80,6 +94,7 @@
                                     <p>{!! $contact->address !!}</p>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
                     <!--== Start: Footer Widget ==-->
