@@ -156,6 +156,16 @@
             </div>
         </div>
     </x-app-layout>
-    
+    <script src="{{ asset('js/vendor/modernizr-3.11.7.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/jquery-migrate-3.3.2.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/swiper-bundle.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/svg-inject.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/fancybox.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
 
 </body>

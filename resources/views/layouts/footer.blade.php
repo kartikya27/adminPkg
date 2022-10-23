@@ -163,6 +163,17 @@
                 </li>
                 <li><a href="/gallery">Gallery</a></li>
                 <li><a href="/contact">Contact</a></li>
+                <li> @php if(!empty(Auth::user()->email)){ @endphp
+                                    <a class="nav-link myaccountBtn logout" href="/logout"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
+                                    <form id="logout-form" action="/logout" method="POST"style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a class="header-donate-btn" href="/dashboard" style="padding: 8px 24px !important;margin-left:1px">Account</a>
+                                @php }else{ @endphp
+                                <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px">Login</a>
+                                @php } @endphp
+                </li>
                 </ul>
             </div>
             <!-- Mobile Menu End -->

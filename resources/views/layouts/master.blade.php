@@ -120,6 +120,7 @@
                                     <form id="logout-form" action="/logout" method="POST"style="display: none;">
                                         @csrf
                                     </form>
+                                    <a class="header-donate-btn" href="/dashboard" style="padding: 8px 24px !important;margin-left:1px">Account</a>
                                 @php }else{ @endphp
                                 <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px">Login</a>
                                 @php } @endphp
