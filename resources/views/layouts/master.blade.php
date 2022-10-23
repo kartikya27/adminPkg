@@ -23,6 +23,7 @@
         @yield('header-scripts')
         <style>
            body{letter-spacing: 1px;}.round-btn{background-color: #131b13;padding-right: 20px;padding-left: 20px!important;margin: 0 0 0 10px;border-radius: 30px;color: #fff !important;}.round-btn a:hover{color:#fff !important}
+           @media only screen and (max-width: 575px){.header-donate-btn1 {display: none !important;}}
         @yield('page-css')
         </style>
     </head>
@@ -115,14 +116,37 @@
                                 <a class="btn btn-primary header-donate-btn" href="/donate" style="padding: 8px 24px !important;">Donate Now</a>
                                 
                                 @php if(!empty(Auth::user()->email)){ @endphp
-                                    <a class="nav-link myaccountBtn logout" href="/logout"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
-                                    <form id="logout-form" action="/logout" method="POST"style="display: none;">
-                                        @csrf
-                                    </form>
-                                    <a class="header-donate-btn" href="/dashboard" style="padding: 8px 24px !important;margin-left:1px">Account</a>
+                                    
+                                    <div class="d-flex header-donate-btn1" style="padding: 0 !important;">
+                                <ul>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="/Images/icons/accc1.png" alt="" width=""> {{ Auth::user()->name }}
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="/dashboard">Profile</a></li>
+                                           
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+
+                                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                                        {{ __('Log Out') }}
+                                                    </x-dropdown-link>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                                    
                                 @php }else{ @endphp
-                                <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px">Login</a>
+                                <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px"><img src="/Images/icons/accc.png" alt="" width=""> Login</a>
                                 @php } @endphp
                                 <button class="btn-menu d-flex d-lg-none" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">

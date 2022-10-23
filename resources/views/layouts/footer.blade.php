@@ -10,9 +10,10 @@
                         <a class="footer-widget-logo me-auto me-md-0 ms-auto ms-md-0" href="index.html">
                             <img src="{{ asset('/images/logo/logo_W.png') }}" width="220" height="58" alt="Logo" />
                         </a>
-                        <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">A small help from you can bring a smile to everyone's face. And will inspire us to move forward.</p>
+                        <p class="footer-widget-desc me-auto me-md-0 ms-auto ms-md-0">A small help from you can bring a
+                            smile to everyone's face. And will inspire us to move forward.</p>
                         <div class="footer-widget-donars">
-                        <h5 class="donars-title">PAN India Donar’s:</h5>
+                            <h5 class="donars-title">PAN India Donar’s:</h5>
                             <h3 class="donars-number">20+</h3>
                         </div>
                     </div>
@@ -23,16 +24,19 @@
                     <div class="footer-widget">
                         <div class="row">
                             <div class="col-md-6 footer-widget-nav1">
-                            <h4 class="footer-widget-title">Schemes</h4>
+                                <h4 class="footer-widget-title">Schemes</h4>
                                 <h4 class="collapsed-title collapsed" data-bs-toggle="collapse"
                                     data-bs-target="#dividerId-1" aria-expanded="false">Schemes</h4>
                                 <div id="dividerId-1" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
-                                    @php
-                                         $subMenu = Kartikey\AdminCrm\Models\products::where('program_status','active')->get();@endphp
-                                         @foreach ($subMenu as $subMenus)
-                                         <li><a href="/what-we-do/{{$subMenus->program_category}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
-                                         @endforeach
+                                        @php
+                                        $subMenu =
+                                        Kartikey\AdminCrm\Models\products::where('program_status','active')->get();@endphp
+                                        @foreach ($subMenu as $subMenus)
+                                        <li><a
+                                                href="/what-we-do/{{$subMenus->program_category}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a>
+                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -42,7 +46,7 @@
                                     data-bs-target="#dividerId-2" aria-expanded="false">Qtuick Links</h4>
                                 <div id="dividerId-2" class="widget-collapse-body collapse">
                                     <ul class="footer-widget-nav">
-                                    <li><a href="{{route('volunteer')}}">Volunteer</a></li>
+                                        <li><a href="{{route('volunteer')}}">Volunteer</a></li>
                                         <li><a href="{{route('success-stories')}}">Success Stories</a></li>
                                         <li><a href="/events">Events</a></li>
                                         <li><a href="/activity">Activity</a></li>
@@ -93,21 +97,29 @@
                     <p class="footer-copyright">© 2022 Shankaraayan.
                     </p>
                 </div>
-                
+
                 <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-                    
-                     <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/privacy" target="_blank">Privacy Policy</a></p>
-                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/terms" target="_blank">Terms & Condition</a></p>
-                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/refund" target="_blank">Cancellation and Refund</a></p>
-                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/shipping" target="_blank">Shipping and Delivery</a></p>
-                    
+
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a
+                            href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/privacy" target="_blank">Privacy
+                            Policy</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a
+                            href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/terms" target="_blank">Terms &
+                            Condition</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a
+                            href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/refund"
+                            target="_blank">Cancellation and Refund</a></p>
+                    <p style="display:inline;padding:0 10px 0 0;color:#fff;font-size:12px;letter-spacing:1px;"><a
+                            href="https://merchant.razorpay.com/policy/KIefuRT570Yglw/shipping" target="_blank">Shipping
+                            and Delivery</a></p>
+
                     <!--<p class="footer-payment-info">Payment System: <a href="my-account.html"><img-->
                     <!--            src="{{asset('/images/photos/payment-card.png')}}" width="147" height="31" alt="Image"></a></p>-->
                 </div>
-                </div>
+            </div>
             <!--    <div class="row flex-row-reverse flex-md-row">-->
             <!--    <div class="col-md-12 text-center text-md-end">-->
-                   
+
             <!--    </div>-->
             <!--</div>-->
         </div>
@@ -140,14 +152,17 @@
                             <li><a href="#/">{{$menu->main_menu}}</a>
                                 <ul class="sub-menu">
                                     @php
-                                        $subMenu = Kartikey\AdminCrm\Models\Products::where('program_category',$menu->menu_slug)->get();@endphp
-                                        @foreach ($subMenu as $subMenus)
-                                    <li><a href="/what-we-do/{{$menu->menu_slug}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a></li>
-                                    @endforeach       
-                            </ul>
+                                    $subMenu =
+                                    Kartikey\AdminCrm\Models\Products::where('program_category',$menu->menu_slug)->get();@endphp
+                                    @foreach ($subMenu as $subMenus)
+                                    <li><a
+                                            href="/what-we-do/{{$menu->menu_slug}}/{{$subMenus->program_url}}">{{ ucwords($subMenus->programName )}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
                             </li>
                             @endforeach
-                            
+
                     </li>
 
                     <li><a href="{{route('volunteer')}}">Volunteer</a></li>
@@ -164,15 +179,17 @@
                 <li><a href="/gallery">Gallery</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li> @php if(!empty(Auth::user()->email)){ @endphp
-                                    <a class="nav-link myaccountBtn logout" href="/logout"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
-                                    <form id="logout-form" action="/logout" method="POST"style="display: none;">
-                                        @csrf
-                                    </form>
-                                    <a class="header-donate-btn" href="/dashboard" style="padding: 8px 24px !important;margin-left:1px">Account</a>
-                                @php }else{ @endphp
-                                <a class="header-donate-btn" href="/login" style="padding: 8px 24px !important;margin-left:1px">Login</a>
-                                @php } @endphp
+                    <a class="nav-link myaccountBtn logout" href="/logout"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
+                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a class="header-donate-btn" href="/dashboard"
+                        style="padding: 8px 24px !important;margin-left:1px">Account</a>
+                    @php }else{ @endphp
+                    <a class="header-donate-btn" href="/login"
+                        style="padding: 8px 24px !important;margin-left:1px">Login</a>
+                    @php } @endphp
                 </li>
                 </ul>
             </div>
@@ -186,7 +203,7 @@
                     <i class="icon icofont-envelope-open"></i>
                     <a href="mailto://support@shankaraayan.com" class="text">support@shankaraayan.com</a>
                 </li>
-                
+
             </ul>
         </div>
         <a class="btn btn-primary mobail-header-donate-btn" href="donate">Donate Now</a>
